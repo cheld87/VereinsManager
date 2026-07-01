@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --vereinsgruen:#1f7a3a;
+    --hell:#f4f6f8;
+    --weiss:#ffffff;
+    --text:#222;
+    --grau:#777;
+    --rot:#c62828;
+    --radius:16px;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--hell);
+    color:var(--text);
+    padding:20px;
+}
+
+.header{
+    background:var(--vereinsgruen);
+    color:white;
+    padding:20px;
+    border-radius:var(--radius);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.header select{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.card{
+    background:white;
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:var(--vereinsgruen);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    text-align:center;
+}
+
+.stats div{
+    background:#eef7f0;
+    border-radius:12px;
+    padding:15px;
+}
+
+.stats span{
+    display:block;
+    color:var(--grau);
+    margin-bottom:8px;
+}
+
+.stats strong{
+    font-size:24px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:15px;
+}
+
+.getraenk{
+    background:#f8f8f8;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.getraenk:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 12px rgba(0,0,0,.12);
+}
+
+.getraenk .emoji{
+    font-size:42px;
+}
+
+.getraenk .name{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.getraenk .preis{
+    color:var(--grau);
+    margin-top:6px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.geldButtons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    padding:15px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.geldButtons button{
+    background:var(--vereinsgruen);
+    color:white;
+}
+
+.verkauf{
+    width:100%;
+    background:var(--vereinsgruen);
+    color:white;
+    font-size:20px;
+    margin-top:20px;
+}
+
+footer{
+    text-align:center;
+    color:var(--grau);
+    padding:25px 0;
+}
+
+@media(max-width:700px){
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+.grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.geldButtons{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
