@@ -100,3 +100,56 @@ function artikelKlicken(name){
     renderWarenkorb();
 
 }
+// ===================================
+// Warenkorb anzeigen
+// ===================================
+
+function renderWarenkorb(){
+
+    const ausgabe =
+        document.getElementById("warenkorb");
+
+    const gesamt =
+        document.getElementById("gesamt");
+
+    if(warenkorb.length === 0){
+
+        ausgabe.innerHTML =
+            "Noch keine Artikel";
+
+        gesamt.innerText =
+            "0,00 €";
+
+        return;
+
+    }
+
+    let html = "";
+    let summe = 0;
+
+    warenkorb.forEach((artikel)=>{
+
+        html += `
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            margin:8px 0;
+        ">
+
+            <span>${artikel.emoji} ${artikel.name}</span>
+
+            <strong>${artikel.preis.toFixed(2)} €</strong>
+
+        </div>
+        `;
+
+        summe += artikel.preis;
+
+    });
+
+    ausgabe.innerHTML = html;
+
+    gesamt.innerText =
+        summe.toFixed(2) + " €";
+
+}
