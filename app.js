@@ -106,50 +106,87 @@ function artikelKlicken(name){
 
 function renderWarenkorb(){
 
-    const ausgabe =
-        document.getElementById("warenkorb");
-
-    const gesamt =
-        document.getElementById("gesamt");
+    const ausgabe = document.getElementById("warenkorb");
+    const gesamt = document.getElementById("gesamt");
 
     if(warenkorb.length === 0){
 
-        ausgabe.innerHTML =
-            "Noch keine Artikel";
-
-        gesamt.innerText =
-            "0,00 €";
-
+        ausgabe.innerHTML = "Noch keine Artikel";
+        gesamt.innerText = "0,00 €";
         return;
 
     }
 
-    let html = "";
-    let summe = 0;
+    let gruppiert = {};
 
-    warenkorb.forEach((artikel)=>{
+    warenkorb.forEach(a=>{
+
+        if(!gruppiert[a.name]){
+
+            gruppiert[a.name]={
+                ...a,
+                menge:0
+            };
+
+        }
+
+        gruppiert[a.name].menge++;
+
+    });
+
+    let html="";
+    let summe=0;
+
+    Object.values(gruppiert).forEach(a=>{
+
+        let zeilenSumme = a.menge * a.preis;
+
+        summe += zeilenSumme;
 
         html += `
-        <div style="
-            display:flex;
-            justify-content:space-between;
-            margin:8px 0;
-        ">
+        <div class="warenkorbZeile">
 
-            <span>${artikel.emoji} ${artikel.name}</span>
+            <div>
 
-            <strong>${artikel.preis.toFixed(2)} €</strong>
+                ${a.emoji} <strong>${a.name}</strong><br>
+
+                ${a.menge} × ${a.preis.toFixed(2)} €
+
+            </div>
+
+            <div>
+
+                <button onclick="artikelMinus('${a.name}')">➖</button>
+
+                <span style="padding:0 10px;">
+                    ${a.menge}
+                </span>
+
+                <button onclick="artikelKlicken('${a.name}')">➕</button>
+
+            </div>
 
         </div>
         `;
-
-        summe += artikel.preis;
 
     });
 
     ausgabe.innerHTML = html;
 
-    gesamt.innerText =
-        summe.toFixed(2) + " €";
+    gesamt.innerText = summe.toFixed(2)+" €";
+
+}
+function artikelMinus(name){
+
+    const index =
+        warenkorb.findIndex(a=>a.name===name);
+
+    if(index>-1){
+
+        warenkorb.splice(index,1);
+
+    }
+
+    renderWarenkorb();
 
 }
