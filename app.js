@@ -40,7 +40,7 @@ const artikel = [
 ];
 
 // Aktueller Verkauf
-let warenkorb = {};
+let warenkorb = [];
 
 // ===================================
 // Start
