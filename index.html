@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VereinsManager</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        ⚽ FV Matzenberg
+    </div>
+
+    <select id="veranstaltung">
+
+        <option>Training</option>
+        <option>Heimspiel Jugend</option>
+        <option>Heimspiel Aktive</option>
+        <option>Turnier</option>
+        <option>Vereinsfest</option>
+        <option>Sonstiges</option>
+
+    </select>
+
+</header>
+
+<main>
+
+<section class="card stats">
+
+    <div>
+        <span>💰 Umsatz</span>
+        <strong id="umsatz">0,00 €</strong>
+    </div>
+
+    <div>
+        <span>💵 Kasse</span>
+        <strong id="kasse">150,00 €</strong>
+    </div>
+
+    <div>
+        <span>📤 Entnahme</span>
+        <strong id="entnahme">0,00 €</strong>
+    </div>
+
+</section>
+
+<section class="card">
+
+    <h2>🛒 Aktueller Verkauf</h2>
+
+    <div id="warenkorb">
+
+        Noch keine Artikel
+
+    </div>
+
+    <h3>
+
+        Gesamt:
+
+        <span id="gesamt">
+
+            0,00 €
+
+        </span>
+
+    </h3>
+
+</section>
+
+<section class="card">
+
+    <h2>🍺 Getränke</h2>
+
+    <div id="getraenkeGrid" class="grid">
+
+    </div>
+
+</section>
+
+<section class="card">
+
+    <h2>💵 Bezahlen</h2>
+
+    <input
+        id="bezahlt"
+        type="number"
+        placeholder="0.00">
+
+    <div class="geldButtons">
+
+        <button>5 €</button>
+        <button>10 €</button>
+        <button>20 €</button>
+        <button>50 €</button>
+
+    </div>
+
+    <h3>
+
+        Rückgeld:
+
+        <span id="rueckgeld">
+
+            0,00 €
+
+        </span>
+
+    </h3>
+
+    <button class="verkauf">
+
+        ✅ Verkauf abschließen
+
+    </button>
+
+</section>
+
+<section class="card">
+
+    <h2>📈 Historie</h2>
+
+    <div id="historie">
+
+        Noch keine Verkäufe
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    VereinsManager v1.0.0 Alpha
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
