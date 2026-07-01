@@ -92,6 +92,11 @@ function renderGetraenke(){
 
 function artikelKlicken(name){
 
-    alert(name);
+    const artikelInfo =
+        artikel.find(a => a.name === name);
+
+    warenkorb.push(artikelInfo);
+
+    renderWarenkorb();
 
 }
