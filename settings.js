@@ -4,7 +4,9 @@
 // Einstellungen
 // Version 0.2.0 Alpha
 // ===================================
+
 let artikelIndex = -1;
+let neuerArtikel = false;
 
 function toggleSettings() {
 
@@ -87,12 +89,29 @@ function preisSpeichern() {
 
 function neuesGetraenk(){
 
-    alert("Getränkeverwaltung kommt im nächsten Schritt 😊");
+    neuerArtikel = true;
+
+    artikelIndex = -1;
+
+    document.getElementById("dialogTitel").innerText =
+        "➕ Neuer Artikel";
+
+    document.getElementById("editEmoji").value = "🥤";
+    document.getElementById("editName").value = "";
+    document.getElementById("editPreis").value = "";
+
+    document.getElementById("artikelDialog").style.display =
+        "flex";
 
 }
 
 function artikelBearbeiten(index){
 
+    neuerArtikel = false;
+
+document.getElementById("dialogTitel").innerText =
+    "✏️ Artikel bearbeiten";
+   
     artikelIndex = index;
 
     document.getElementById("editEmoji").value =
@@ -118,7 +137,23 @@ function dialogSchliessen(){
 
 function artikelSpeichern(){
 
-    artikel[artikelIndex].emoji =
+    if(neuerArtikel){
+
+    artikel.push({
+
+        emoji: document.getElementById("editEmoji").value,
+
+        name: document.getElementById("editName").value,
+
+        preis: parseFloat(
+            document.getElementById("editPreis").value
+        ) || 0
+
+    });
+
+}else{
+   
+        artikel[artikelIndex].emoji =
         document.getElementById("editEmoji").value;
 
     artikel[artikelIndex].name =
@@ -128,7 +163,8 @@ function artikelSpeichern(){
         parseFloat(
             document.getElementById("editPreis").value
         );
-
+}
+    
     datenSpeichern();
 
     renderGetraenke();
