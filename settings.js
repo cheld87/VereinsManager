@@ -60,27 +60,7 @@ function renderSettings() {
 
 function preisSpeichern() {
 
-html += `
-<div class="settingArtikel">
-
-    <div class="settingName">
-        ${a.emoji} ${a.name}
-    </div>
-
-    <div>
-
-        <button
-            class="editButton"
-            onclick="artikelBearbeiten(${index})">
-
-            ✏️
-
-        </button>
-
-    </div>
-
-</div>
-`;
+    artikel.forEach((a, index) => {
 
         const feld =
             document.getElementById("preis" + index);
