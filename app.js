@@ -192,13 +192,9 @@ function artikelMinus(name){
 }
 function setBezahlt(betrag){
 
-    alert("Button funktioniert: " + betrag);
-
     document.getElementById("bezahlt").value = betrag;
 
     berechneRueckgeld();
-
-}
 
 }
 function berechneRueckgeld(){
