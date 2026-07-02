@@ -172,17 +172,61 @@ footer{
 }
 
 }
+
 .warenkorbZeile{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    padding:12px 0;
+    padding:15px 0;
 
-    border-bottom:1px solid #eee;
+    border-bottom:1px solid #ececec;
+
+}
+
+.warenkorbInfo{
+
+    flex:1;
+
+}
+
+.warenkorbName{
+
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+.warenkorbPreis{
+
+    color:#777;
+    margin-top:5px;
+
+}
+
+.warenkorbButtons{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.warenkorbButtons button{
+
+    width:48px;
+    height:48px;
+
+    border:none;
+    border-radius:12px;
+
+    background:var(--vereinsgruen);
+
+    color:white;
+
+    font-size:22px;
+    font-weight:bold;
 
 }
 
