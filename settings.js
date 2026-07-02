@@ -141,15 +141,17 @@ function artikelSpeichern(){
 
     artikel.push({
 
-        emoji: document.getElementById("editEmoji").value,
+    emoji: document.getElementById("editEmoji").value,
 
-        name: document.getElementById("editName").value,
+    name: document.getElementById("editName").value,
 
-        preis: parseFloat(
-            document.getElementById("editPreis").value
-        ) || 0
+    preis: parseFloat(
+        document.getElementById("editPreis").value
+    ) || 0,
 
-    });
+    aktiv: true
+
+});
 
 }else{
    
