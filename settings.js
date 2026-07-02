@@ -60,7 +60,7 @@ function renderSettings() {
 
 function preisSpeichern() {
 
-    html += `
+html += `
 <div class="settingArtikel">
 
     <div class="settingName">
