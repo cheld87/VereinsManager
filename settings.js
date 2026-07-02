@@ -44,13 +44,22 @@ function renderSettings() {
         <small>${a.preis.toFixed(2)} €</small>
     </div>
 
+    <div class="buttonGruppe">
+
     <button
         class="editButton"
         onclick="artikelBearbeiten(${index})">
         ✏️
     </button>
 
+    <button
+        class="deleteButton"
+        onclick="artikelDeaktivieren(${index})">
+        🗑️
+    </button>
+
 </div>
+
 `;
 
     });
