@@ -34,26 +34,30 @@ function renderSettings() {
     artikel.forEach((a, index) => {
 
         html += `
-
 <div class="settingArtikel">
 
     <div class="settingName">
-
         ${a.emoji} ${a.name}
-
+        <br>
+        <small>${a.preis.toFixed(2)} €</small>
     </div>
 
-    <input
-        id="preis${index}"
-        type="number"
-        step="0.01"
-        value="${a.preis.toFixed(2)}">
+    <button
+        class="editButton"
+        onclick="artikelBearbeiten(${index})">
+        ✏️
+    </button>
 
 </div>
-
 `;
 
     });
+
+    html += `
+<button class="neuButton" onclick="neuesGetraenk()">
+    ➕ Neuer Artikel
+</button>
+`;
 
     container.innerHTML = html;
 
