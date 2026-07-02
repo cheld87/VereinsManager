@@ -202,12 +202,11 @@ function artikelSpeichern(){
 
 }
 
-function artikelDeaktivieren(index){
+function artikelDeaktivieren(index) {
 
-    if(!confirm(
-        artikel[index].name +
-        " wirklich deaktivieren?"
-    )){
+    const artikelName = artikel[index].name;
+
+    if (!confirm(`"${artikelName}" wirklich deaktivieren?`)) {
         return;
     }
 
