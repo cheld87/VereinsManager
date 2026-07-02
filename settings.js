@@ -79,3 +79,9 @@ function preisSpeichern() {
     toggleSettings();
 
 }
+
+function neuesGetraenk(){
+
+    alert("Getränkeverwaltung kommt im nächsten Schritt 😊");
+
+}
