@@ -13,8 +13,6 @@ let umsatz = 0;
 // Daten laden
 // ================================
 
-const gespeichert =
-    JSON.parse(localStorage.getItem("vereinsmanager"));
 
 if(gespeichert){
 
@@ -369,7 +367,6 @@ document.getElementById(
 
 }
 
-function speichern(){
 
 artikel.forEach((a,index)=>{
 
