@@ -44,7 +44,9 @@ function renderSettings() {
     artikel
         .filter(a => zeigeInaktive || a.aktiv !== false)
         .forEach((a, index) => {
-
+          
+            console.log(a.name, a.aktiv);
+            
             html += `
 
 <div class="settingArtikel">
