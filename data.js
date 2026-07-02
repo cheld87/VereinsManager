@@ -12,7 +12,16 @@ const app = {
 
 const artikel = [
 
-    { emoji:"🍺", name:"UrPils", preis:2.80 },
+{
+    id: 1,
+    emoji: "🍺",
+    name: "UrPils",
+    preis: 2.80,
+    kategorie: "Bier",
+    bestand: 120,
+    mindestbestand: 24,
+    aktiv: true
+},
     { emoji:"📦", name:"Bierkasten", preis:35.00 },
 
     { emoji:"🍺", name:"Weizenbier", preis:2.80 },
