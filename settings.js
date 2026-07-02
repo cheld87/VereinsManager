@@ -65,6 +65,12 @@ function renderSettings() {
 
 }
 
+<button
+    class="deleteButton"
+    onclick="artikelDeaktivieren(${index})">
+    🗑️
+</button>
+
 function preisSpeichern() {
 
     artikel.forEach((a, index) => {
@@ -174,5 +180,24 @@ function artikelSpeichern(){
     renderSettings();
 
     dialogSchliessen();
+
+}
+
+function artikelDeaktivieren(index){
+
+    if(!confirm(
+        artikel[index].name +
+        " wirklich deaktivieren?"
+    )){
+        return;
+    }
+
+    artikel[index].aktiv = false;
+
+    datenSpeichern();
+
+    renderGetraenke();
+
+    renderSettings();
 
 }
