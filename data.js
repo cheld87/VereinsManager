@@ -10,7 +10,7 @@ const app = {
     startKasse: 150
 };
 
-const artikel = [
+let artikel = [
 
 {
     id: 1,
