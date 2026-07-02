@@ -395,7 +395,6 @@ document.getElementById("kasse").innerText =
 document.getElementById("entnahme").innerText =
     umsatz.toFixed(2)+" €";
 
-    renderWarenkorb();
 
 toggleSettings();
 
