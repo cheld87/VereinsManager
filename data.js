@@ -17,11 +17,17 @@ const artikel = [
     emoji: "🍺",
     name: "UrPils",
     preis: 2.80,
+
     kategorie: "Bier",
-    bestand: 120,
+
+    kaesten: 5,
+    flaschen: 12,
+    flaschenProKasten: 24,
+
     mindestbestand: 24,
+
     aktiv: true
-},
+}
     { emoji:"📦", name:"Bierkasten", preis:35.00 },
 
     { emoji:"🍺", name:"Weizenbier", preis:2.80 },
