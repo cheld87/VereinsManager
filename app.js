@@ -9,6 +9,20 @@ const app = {
     startKasse: 150
 };
 let umsatz = 0;
+// ================================
+// Daten laden
+// ================================
+
+const gespeichert =
+    JSON.parse(localStorage.getItem("vereinsmanager"));
+
+if(gespeichert){
+
+    umsatz = gespeichert.umsatz || 0;
+
+    warenkorb = gespeichert.warenkorb || [];
+
+}
 // Getränke
 const artikel = [
     { emoji:"🍺", name:"UrPils", preis:2.80 },
@@ -98,7 +112,9 @@ function artikelKlicken(name){
     warenkorb.push(artikelInfo);
 
     renderWarenkorb();
-
+    
+    speichern();
+    
 }
 // ===================================
 // Warenkorb anzeigen
@@ -198,6 +214,8 @@ function artikelMinus(name){
     }
 
     renderWarenkorb();
+    
+    speichern();
 
 }
 function setBezahlt(betrag){
@@ -269,6 +287,8 @@ function verkaufAbschliessen(){
 
     renderWarenkorb();
 
+    speichern();
+
     document.getElementById("bezahlt").value="";
 
     document.getElementById("rueckgeld").innerText="0,00 €";
@@ -289,6 +309,8 @@ function verkaufLoeschen(){
     warenkorb=[];
 
     renderWarenkorb();
+
+    speichern();
 
     document.getElementById("bezahlt").value="";
 
@@ -362,8 +384,36 @@ document.getElementById(
 
 renderGetraenke();
 
-renderWarenkorb();
+    renderWarenkorb();
+
+document.getElementById("umsatz").innerText =
+    umsatz.toFixed(2)+" €";
+
+document.getElementById("kasse").innerText =
+    (app.startKasse+umsatz).toFixed(2)+" €";
+
+document.getElementById("entnahme").innerText =
+    umsatz.toFixed(2)+" €";
+
+    renderWarenkorb();
 
 toggleSettings();
+
+}
+function speichern(){
+
+    localStorage.setItem(
+
+        "vereinsmanager",
+
+        JSON.stringify({
+
+            umsatz,
+
+            warenkorb
+
+        })
+
+    );
 
 }
