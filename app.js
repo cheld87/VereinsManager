@@ -40,3 +40,6 @@ function updateDashboard(){
         umsatz.toFixed(2) + " €";
 
 }
+
+document.getElementById("version").innerText =
+    `${app.verein} · Version ${app.version} · Build ${app.build}`;
