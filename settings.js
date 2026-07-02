@@ -104,3 +104,33 @@ function artikelBearbeiten(index){
         "flex";
 
 }
+
+function dialogSchliessen(){
+
+    document.getElementById("artikelDialog").style.display =
+        "none";
+
+}
+
+function artikelSpeichern(){
+
+    artikel[artikelIndex].emoji =
+        document.getElementById("editEmoji").value;
+
+    artikel[artikelIndex].name =
+        document.getElementById("editName").value;
+
+    artikel[artikelIndex].preis =
+        parseFloat(
+            document.getElementById("editPreis").value
+        );
+
+    datenSpeichern();
+
+    renderGetraenke();
+
+    renderSettings();
+
+    dialogSchliessen();
+
+}
