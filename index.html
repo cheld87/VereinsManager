@@ -16,8 +16,16 @@
 <header class="header">
 
     <div class="logo">
-        ⚽ FV Matzenberg
-    </div>
+    ⚽ FV Matzenberg
+</div>
+
+<button
+    class="settingsButton"
+    onclick="toggleSettings()">
+
+⚙️
+
+</button>
 
     <select id="veranstaltung">
 
@@ -32,6 +40,24 @@
 
 </header>
 
+    <div id="settings" class="settings">
+
+<h2>⚙ Einstellungen</h2>
+
+<h3>Getränke</h3>
+
+<div id="settingsGetraenke">
+
+</div>
+
+<button onclick="speichern()">
+
+💾 Speichern
+
+</button>
+
+</div>
+    
 <main>
 
 <section class="card stats">
