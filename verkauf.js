@@ -16,12 +16,6 @@ function renderGetraenke() {
         .forEach(a => {
 
             grid.innerHTML += `
-                ...
-            `;
-
-        });
-
-}
 
 function artikelKlicken(name) {
 
