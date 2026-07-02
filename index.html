@@ -189,5 +189,39 @@
 <script src="settings.js"></script>
 <script src="app.js"></script>
 
+ <div id="artikelDialog" class="dialog" style="display:none;">
+
+    <div class="dialogBox">
+
+        <h2>✏️ Artikel bearbeiten</h2>
+
+        <label>Emoji</label>
+        <input id="editEmoji">
+
+        <label>Name</label>
+        <input id="editName">
+
+        <label>Preis</label>
+        <input
+            id="editPreis"
+            type="number"
+            step="0.01">
+
+        <div class="dialogButtons">
+
+            <button onclick="dialogSchliessen()">
+                Abbrechen
+            </button>
+
+            <button onclick="artikelSpeichern()">
+                💾 Speichern
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    
 </body>
 </html>
