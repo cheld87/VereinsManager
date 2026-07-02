@@ -11,21 +11,15 @@ function renderGetraenke() {
 
     grid.innerHTML = "";
 
-    artikel.forEach(a => {
+    artikel
+        .filter(a => a.aktiv !== false)
+        .forEach(a => {
 
-        grid.innerHTML += `
-        <div class="getraenk" onclick="artikelKlicken('${a.name}')">
+            grid.innerHTML += `
+                ...
+            `;
 
-            <div class="emoji">${a.emoji}</div>
-
-            <div class="name">${a.name}</div>
-
-            <div class="preis">${a.preis.toFixed(2)} €</div>
-
-        </div>
-        `;
-
-    });
+        });
 
 }
 
