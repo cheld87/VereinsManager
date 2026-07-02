@@ -56,7 +56,3 @@ const artikel = [
     { emoji:"☕", name:"Kaffee", preis:1.50 }
 
 ];
-
-<button class="neuButton" onclick="neuesGetraenk()">
-    ➕ Neues Getränk
-</button>
