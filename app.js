@@ -295,3 +295,75 @@ function verkaufLoeschen(){
     document.getElementById("rueckgeld").innerText="0,00 €";
 
 }
+
+function toggleSettings(){
+
+const fenster =
+document.getElementById("settings");
+
+if(fenster.style.display==="block"){
+
+fenster.style.display="none";
+
+}
+else{
+
+fenster.style.display="block";
+
+renderSettings();
+
+}
+
+}
+function renderSettings(){
+
+let html="";
+
+artikel.forEach((a,index)=>{
+
+html+=`
+
+<div style="margin-bottom:15px;">
+
+<strong>${a.emoji} ${a.name}</strong>
+
+<br><br>
+
+<input
+id="preis${index}"
+type="number"
+step="0.01"
+value="${a.preis}">
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+"settingsGetraenke"
+).innerHTML=html;
+
+}
+
+function speichern(){
+
+artikel.forEach((a,index)=>{
+
+a.preis=
+parseFloat(
+document.getElementById(
+"preis"+index
+).value
+);
+
+});
+
+renderGetraenke();
+
+renderWarenkorb();
+
+toggleSettings();
+
+}
