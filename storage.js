@@ -1,15 +1,15 @@
 // ===================================
-// Speicherverwaltung
+// VereinsManager
+// storage.js
+// Speichern & Laden
 // ===================================
 
-function datenSpeichern(){
+function datenSpeichern() {
 
     const daten = {
-
         umsatz: umsatz,
         warenkorb: warenkorb,
         artikel: artikel
-
     };
 
     localStorage.setItem(
@@ -19,29 +19,26 @@ function datenSpeichern(){
 
 }
 
-function datenLaden(){
+function datenLaden() {
 
-    const daten =
-        JSON.parse(
-            localStorage.getItem("vereinsmanager")
-        );
+    const daten = JSON.parse(
+        localStorage.getItem("vereinsmanager")
+    );
 
-    if(!daten){
+    if (!daten) {
         return;
     }
 
     umsatz = daten.umsatz || 0;
-
     warenkorb = daten.warenkorb || [];
 
-    if(daten.artikel){
+    if (daten.artikel) {
 
-        daten.artikel.forEach((gespeichert,index)=>{
+        daten.artikel.forEach((gespeichert, index) => {
 
-            if(artikel[index]){
+            if (artikel[index]) {
 
-                artikel[index].preis =
-                    gespeichert.preis;
+                artikel[index].preis = gespeichert.preis;
 
             }
 
