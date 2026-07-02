@@ -27,7 +27,7 @@ const artikel = [
     mindestbestand: 24,
 
     aktiv: true
-}
+},
     { emoji:"📦", name:"Bierkasten", preis:35.00 },
 
     { emoji:"🍺", name:"Weizenbier", preis:2.80 },
