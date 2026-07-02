@@ -16,6 +16,19 @@ function renderGetraenke() {
         .forEach(a => {
 
             grid.innerHTML += `
+                <div class="getraenk" onclick="artikelKlicken('${a.name}')">
+
+                    <div class="emoji">${a.emoji}</div>
+
+                    <div class="name">${a.name}</div>
+
+                    <div class="preis">${a.preis.toFixed(2)} €</div>
+
+                </div>
+            `;
+
+        });
+
 }
 
 function artikelKlicken(name) {
