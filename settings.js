@@ -4,6 +4,7 @@
 // Einstellungen
 // Version 0.2.0 Alpha
 // ===================================
+let artikelIndex = -1;
 
 function toggleSettings() {
 
