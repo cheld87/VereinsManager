@@ -89,18 +89,20 @@
     <h2>💵 Bezahlen</h2>
 
     <input
-        id="bezahlt"
-        type="number"
-        placeholder="0.00">
+    id="bezahlt"
+    type="number"
+    step="0.01"
+    placeholder="0,00 €"
+    oninput="berechneRueckgeld()">
 
     <div class="geldButtons">
 
-        <button>5 €</button>
-        <button>10 €</button>
-        <button>20 €</button>
-        <button>50 €</button>
+    <button onclick="setBezahlt(5)">5 €</button>
+    <button onclick="setBezahlt(10)">10 €</button>
+    <button onclick="setBezahlt(20)">20 €</button>
+    <button onclick="setBezahlt(50)">50 €</button>
 
-    </div>
+</div>
 
     <h3>
 
@@ -114,7 +116,9 @@
 
     </h3>
 
-    <button class="verkauf">
+    <button
+    class="verkauf"
+    onclick="verkaufAbschliessen()">
 
         ✅ Verkauf abschließen
 
