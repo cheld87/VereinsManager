@@ -385,3 +385,22 @@ color:white;
     cursor:pointer;
 
 }
+
+.editButton{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    background:#1976d2;
+
+    color:white;
+
+}
