@@ -42,18 +42,24 @@
 
     <div id="settings" class="settings">
 
-<h2>⚙ Einstellungen</h2>
+<div class="settingsHeader">
 
-<h3>Getränke</h3>
+    <h2>⚙ Einstellungen</h2>
 
-<div id="settingsGetraenke">
+    <button
+        class="closeButton"
+        onclick="toggleSettings()">
+        ✖
+    </button>
 
 </div>
 
+<h3>Getränke</h3>
+
+<div id="settingsGetraenke"></div>
+
 <button onclick="speichern()">
-
-💾 Speichern
-
+    💾 Speichern
 </button>
 
 </div>
