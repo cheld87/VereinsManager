@@ -59,23 +59,31 @@ function renderSettings() {
 
     <div class="buttonGruppe">
 
+    ${
+        a.aktiv === false
+        ? `
+        <button
+            class="editButton"
+            onclick="artikelAktivieren(${index})">
+            ♻️
+        </button>
+        `
+        : `
         <button
             class="editButton"
             onclick="artikelBearbeiten(${index})">
-
             ✏️
-
         </button>
 
         <button
             class="deleteButton"
             onclick="artikelDeaktivieren(${index})">
-
             🗑️
-
         </button>
+        `
+    }
 
-    </div>
+</div>
 
 </div>
 
@@ -233,6 +241,18 @@ function artikelDeaktivieren(index) {
 function toggleInaktive(status){
 
     zeigeInaktive = status;
+
+    renderSettings();
+
+}
+
+function artikelAktivieren(index){
+
+    artikel[index].aktiv = true;
+
+    datenSpeichern();
+
+    renderGetraenke();
 
     renderSettings();
 
