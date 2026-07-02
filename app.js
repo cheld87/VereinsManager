@@ -8,7 +8,7 @@ const app = {
     verein: "FV Matzenberg",
     startKasse: 150
 };
-
+let umsatz = 0;
 // Getränke
 const artikel = [
     { emoji:"🍺", name:"UrPils", preis:2.80 },
@@ -188,5 +188,81 @@ function artikelMinus(name){
     }
 
     renderWarenkorb();
+
+}
+function setBezahlt(betrag){
+
+    document.getElementById("bezahlt").value = betrag;
+
+    berechneRueckgeld();
+
+}
+function berechneRueckgeld(){
+
+    let bezahlt =
+        parseFloat(
+            document.getElementById("bezahlt").value
+        ) || 0;
+
+    let rueckgeld = bezahlt - berechneGesamt();
+
+    document.getElementById("rueckgeld").innerText =
+        rueckgeld.toFixed(2) + " €";
+
+}
+function berechneGesamt(){
+
+    return warenkorb.reduce(
+        (summe,a)=>summe+a.preis,
+        0
+    );
+
+}
+function verkaufAbschliessen(){
+
+    if(warenkorb.length===0){
+
+        alert("Warenkorb ist leer.");
+
+        return;
+
+    }
+
+    let bezahlt =
+        parseFloat(
+            document.getElementById("bezahlt").value
+        ) || 0;
+
+    let gesamt =
+        berechneGesamt();
+
+    if(bezahlt<gesamt){
+
+        alert("Zu wenig Geld erhalten.");
+
+        return;
+
+    }
+
+    umsatz += gesamt;
+
+    document.getElementById("umsatz").innerText =
+        umsatz.toFixed(2)+" €";
+
+    document.getElementById("kasse").innerText =
+        (app.startKasse+umsatz).toFixed(2)+" €";
+
+    document.getElementById("entnahme").innerText =
+        umsatz.toFixed(2)+" €";
+
+    warenkorb=[];
+
+    renderWarenkorb();
+
+    document.getElementById("bezahlt").value="";
+
+    document.getElementById("rueckgeld").innerText="0,00 €";
+
+    alert("✅ Verkauf erfolgreich abgeschlossen.");
 
 }
