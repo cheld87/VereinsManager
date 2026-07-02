@@ -60,7 +60,27 @@ function renderSettings() {
 
 function preisSpeichern() {
 
-    artikel.forEach((a, index) => {
+    html += `
+<div class="settingArtikel">
+
+    <div class="settingName">
+        ${a.emoji} ${a.name}
+    </div>
+
+    <div>
+
+        <button
+            class="editButton"
+            onclick="artikelBearbeiten(${index})">
+
+            ✏️
+
+        </button>
+
+    </div>
+
+</div>
+`;
 
         const feld =
             document.getElementById("preis" + index);
@@ -83,5 +103,14 @@ function preisSpeichern() {
 function neuesGetraenk(){
 
     alert("Getränkeverwaltung kommt im nächsten Schritt 😊");
+
+}
+
+function artikelBearbeiten(index){
+
+    alert(
+        "Bearbeiten von: "
+        + artikel[index].name
+    );
 
 }
