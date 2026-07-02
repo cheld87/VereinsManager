@@ -331,3 +331,35 @@ color:white;
     font-size:18px;
 
 }
+
+.settingArtikel{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.settingName{
+
+    flex:1;
+
+    font-weight:bold;
+
+}
+
+.settingArtikel input{
+
+    width:100px;
+
+    text-align:right;
+
+}
