@@ -1,8 +1,7 @@
 // ===================================
 // VereinsManager
 // settings.js
-// Einstellungen
-// Version 0.2.0 Alpha
+// Version 0.3.0 Alpha
 // ===================================
 
 let artikelIndex = -1;
@@ -15,14 +14,13 @@ function toggleSettings() {
     if (fenster.style.display === "block") {
 
         fenster.style.display = "none";
-
-    } else {
-
-        fenster.style.display = "block";
-
-        renderSettings();
+        return;
 
     }
+
+    fenster.style.display = "block";
+
+    renderSettings();
 
 }
 
@@ -33,41 +31,58 @@ function renderSettings() {
 
     let html = "";
 
-    artikel.forEach((a, index) => {
+    artikel
+        .filter(a => a.aktiv !== false)
+        .forEach((a, index) => {
 
-        html += `
+            html += `
+
 <div class="settingArtikel">
 
     <div class="settingName">
-        ${a.emoji} ${a.name}
-        <br>
+
+        <strong>${a.emoji} ${a.name}</strong><br>
+
         <small>${a.preis.toFixed(2)} €</small>
+
     </div>
 
     <div class="buttonGruppe">
 
-    <button
-        class="editButton"
-        onclick="artikelBearbeiten(${index})">
-        ✏️
-    </button>
+        <button
+            class="editButton"
+            onclick="artikelBearbeiten(${index})">
 
-    <button
-        class="deleteButton"
-        onclick="artikelDeaktivieren(${index})">
-        🗑️
-    </button>
+            ✏️
+
+        </button>
+
+        <button
+            class="deleteButton"
+            onclick="artikelDeaktivieren(${index})">
+
+            🗑️
+
+        </button>
+
+    </div>
 
 </div>
 
 `;
 
-    });
+        });
 
     html += `
-<button class="neuButton" onclick="neuesGetraenk()">
+
+<button
+    class="neuButton"
+    onclick="neuesGetraenk()">
+
     ➕ Neuer Artikel
+
 </button>
+
 `;
 
     container.innerHTML = html;
