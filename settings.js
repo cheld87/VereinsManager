@@ -89,9 +89,18 @@ function neuesGetraenk(){
 
 function artikelBearbeiten(index){
 
-    alert(
-        "Bearbeiten von: "
-        + artikel[index].name
-    );
+    artikelIndex = index;
+
+    document.getElementById("editEmoji").value =
+        artikel[index].emoji;
+
+    document.getElementById("editName").value =
+        artikel[index].name;
+
+    document.getElementById("editPreis").value =
+        artikel[index].preis;
+
+    document.getElementById("artikelDialog").style.display =
+        "flex";
 
 }
