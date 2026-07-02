@@ -266,3 +266,22 @@ function verkaufAbschliessen(){
     alert("✅ Verkauf erfolgreich abgeschlossen.");
 
 }
+function verkaufLoeschen(){
+
+    if(warenkorb.length===0){
+        return;
+    }
+
+    if(!confirm("Aktuellen Verkauf wirklich löschen?")){
+        return;
+    }
+
+    warenkorb=[];
+
+    renderWarenkorb();
+
+    document.getElementById("bezahlt").value="";
+
+    document.getElementById("rueckgeld").innerText="0,00 €";
+
+}
