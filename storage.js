@@ -34,17 +34,7 @@ function datenLaden() {
 
     if (daten.artikel) {
 
-        daten.artikel.forEach((gespeichert, index) => {
-
-           if (artikel[index]) {
-
-    artikel[index].emoji = gespeichert.emoji;
-    artikel[index].name = gespeichert.name;
-    artikel[index].preis = gespeichert.preis;
-
-   }
-
-        });
+        artikel = daten.artikel;
 
     }
 
