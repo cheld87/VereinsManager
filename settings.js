@@ -6,6 +6,7 @@
 
 let artikelIndex = -1;
 let neuerArtikel = false;
+let zeigeInaktive = false;
 
 function toggleSettings() {
 
@@ -31,8 +32,17 @@ function renderSettings() {
 
     let html = "";
 
+    html += `
+<label style="display:flex;align-items:center;gap:8px;margin-bottom:15px;">
+    <input
+        type="checkbox"
+        ${zeigeInaktive ? "checked" : ""}
+        onchange="toggleInaktive(this.checked)">
+    Inaktive Artikel anzeigen
+</label>
+`;
     artikel
-        .filter(a => a.aktiv !== false)
+        .filter(a => zeigeInaktive || a.aktiv !== false)
         .forEach((a, index) => {
 
             html += `
@@ -215,6 +225,14 @@ function artikelDeaktivieren(index) {
     datenSpeichern();
 
     renderGetraenke();
+
+    renderSettings();
+
+}
+
+function toggleInaktive(status){
+
+    zeigeInaktive = status;
 
     renderSettings();
 
