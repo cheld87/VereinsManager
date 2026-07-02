@@ -299,3 +299,35 @@ cursor:pointer;
 color:white;
 
 }
+
+.settingsHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.closeButton{
+
+    background:#d32f2f;
+
+    color:white;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
