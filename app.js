@@ -143,32 +143,42 @@ function renderWarenkorb(){
 
         summe += zeilenSumme;
 
+       
         html += `
-        <div class="warenkorbZeile">
 
-            <div>
+<div class="warenkorbZeile">
 
-                ${a.emoji} <strong>${a.name}</strong><br>
+    <div class="warenkorbInfo">
 
-                ${a.menge} × ${a.preis.toFixed(2)} €
+        <div class="warenkorbName">
 
-            </div>
-
-            <div>
-
-                <button onclick="artikelMinus('${a.name}')">➖</button>
-
-                <span style="padding:0 10px;">
-                    ${a.menge}
-                </span>
-
-                <button onclick="artikelKlicken('${a.name}')">➕</button>
-
-            </div>
+            ${a.emoji} ${a.name}
 
         </div>
-        `;
 
+        <div class="warenkorbPreis">
+
+            ${a.menge} × ${a.preis.toFixed(2)} €
+            =
+            <strong>${zeilenSumme.toFixed(2)} €</strong>
+
+        </div>
+
+    </div>
+
+    <div class="warenkorbButtons">
+
+        <button onclick="artikelMinus('${a.name}')">−</button>
+
+        <span>${a.menge}</span>
+
+        <button onclick="artikelKlicken('${a.name}')">+</button>
+
+    </div>
+
+</div>
+
+`;
     });
 
     ausgabe.innerHTML = html;
