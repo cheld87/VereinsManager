@@ -36,11 +36,13 @@ function datenLaden() {
 
         daten.artikel.forEach((gespeichert, index) => {
 
-            if (artikel[index]) {
+           if (artikel[index]) {
 
-                artikel[index].preis = gespeichert.preis;
+    artikel[index].emoji = gespeichert.emoji;
+    artikel[index].name = gespeichert.name;
+    artikel[index].preis = gespeichert.preis;
 
-            }
+   }
 
         });
 
