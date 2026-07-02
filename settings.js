@@ -65,11 +65,6 @@ function renderSettings() {
 
 }
 
-<button
-    class="deleteButton"
-    onclick="artikelDeaktivieren(${index})">
-    🗑️
-</button>
 
 function preisSpeichern() {
 
