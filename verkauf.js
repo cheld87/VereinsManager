@@ -262,16 +262,17 @@ function verkaufAbschliessen() {
 });
     warenkorb = [];
 
-    document.getElementById("bezahlt").value = "";
+document.getElementById("bezahlt").value = "";
 
-    document.getElementById("rueckgeld").innerText = "0,00 €";
+document.getElementById("rueckgeld").innerText = "0,00 €";
 
-    renderWarenkorb();
+renderWarenkorb();
+renderGetraenke();
 
-    updateDashboard();
+updateDashboard();
 
-    datenSpeichern();
+datenSpeichern();
 
-    alert("✅ Verkauf abgeschlossen.");
+alert("✅ Verkauf abgeschlossen.");
 
 }
