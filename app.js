@@ -72,7 +72,7 @@ function updateDashboard(){
 document.getElementById("version").innerText =
     `${app.verein} · Version ${app.version} · Build ${app.build}`;
 
-function showLagerStatus(){
+function renderLagerStatus(){
 
     let html = "";
 
@@ -181,6 +181,12 @@ function showLagerStatus(){
 
     document.getElementById("lagerDialogInhalt").innerHTML =
         html;
+
+}
+
+function showLagerStatus(){
+
+    renderLagerStatus();
 
     document.getElementById("lagerDialog").style.display =
         "flex";
