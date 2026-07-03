@@ -466,3 +466,35 @@ color:white;
     font-weight:600;
 
 }
+
+.lagerEditor{
+
+    margin-top:8px;
+
+}
+
+.lagerZeile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:4px;
+
+}
+
+.lagerZeile button{
+
+    width:26px;
+
+    height:26px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
