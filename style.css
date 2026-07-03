@@ -582,3 +582,23 @@ color:white;
     background:#c62828;
 
 }
+
+#lagerStatus{
+
+    cursor:pointer;
+
+}
+
+#lagerStatus:hover{
+
+    transform:scale(1.02);
+
+}
+
+.lagerEintrag{
+
+    padding:10px;
+
+    border-bottom:1px solid #ddd;
+
+}
