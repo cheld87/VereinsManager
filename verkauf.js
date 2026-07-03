@@ -285,7 +285,6 @@ function verkaufAbschliessen() {
     statistik[a.id].verkauft++;
 
     // dein Lagercode...
-});
 
     const artikelInfo = artikel.find(x => x.id === a.id);
 
