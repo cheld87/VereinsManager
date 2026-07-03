@@ -317,7 +317,8 @@ function verkaufAbschliessen() {
     }
 
 });
- warenkorb = [];
+ 
+warenkorb = [];
 
 document.getElementById("bezahlt").value = "";
 
