@@ -239,9 +239,12 @@ function verkaufAbschliessen() {
     if (!artikelInfo) return;
 
     if (!artikelInfo.lagerartikel) return;
+       
         console.log("Vorher:", artikelInfo.lager);
-        console.log("Nachher:", artikelInfo.lager);
+       
     artikelInfo.lager.flaschen--;
+
+      console.log("Nachher:", artikelInfo.lager);   
 
     if (artikelInfo.lager.flaschen < 0) {
 
