@@ -336,7 +336,7 @@ function lagerPlus(id, feld){
 
     updateDashboard();
 
-    showLagerStatus();
+    renderLagerStatus();
 
 }
 
@@ -377,5 +377,5 @@ function lagerMinus(id, feld){
 
     updateDashboard();
     
-    showLagerStatus();
+    renderLagerStatus();
 }
