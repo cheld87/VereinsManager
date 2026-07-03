@@ -1,22 +1,24 @@
 // ===================================
 // VereinsManager
 // settings.js
-// Version 0.3.0 Alpha
+// Version 0.3.0
 // ===================================
 
-let artikelIndex = -1;
+let artikelId = null;
 let neuerArtikel = false;
 let zeigeInaktive = false;
+
+function artikelNachId(id) {
+    return artikel.find(a => a.id === id);
+}
 
 function toggleSettings() {
 
     const fenster = document.getElementById("settings");
 
     if (fenster.style.display === "block") {
-
         fenster.style.display = "none";
         return;
-
     }
 
     fenster.style.display = "block";
@@ -30,60 +32,70 @@ function renderSettings() {
     const container =
         document.getElementById("settingsGetraenke");
 
-    let html = "";
+    let html = `
 
-    html += `
 <label style="display:flex;align-items:center;gap:8px;margin-bottom:15px;">
-    <input
-        type="checkbox"
-        ${zeigeInaktive ? "checked" : ""}
-        onchange="toggleInaktive(this.checked)">
-    Inaktive Artikel anzeigen
+
+<input
+type="checkbox"
+${zeigeInaktive ? "checked" : ""}
+onchange="toggleInaktive(this.checked)">
+
+Inaktive Artikel anzeigen
+
 </label>
+
 `;
+
     artikel
-        .filter(a => zeigeInaktive || a.aktiv !== false)
-        .forEach((a) => {
-          
-            console.log(a.name, a.aktiv);
-            
+        .filter(a => zeigeInaktive || a.aktiv)
+        .forEach(a => {
+
             html += `
 
 <div class="settingArtikel">
 
-    <div class="settingName">
+<div class="settingName">
 
-        <strong>${a.emoji} ${a.name}</strong><br>
+<strong>${a.emoji} ${a.name}</strong><br>
 
-        <small>${a.preis.toFixed(2)} €</small>
+<small>${a.preis.toFixed(2)} €</small>
 
-    </div>
+</div>
 
-    <div class="buttonGruppe">
+<div class="buttonGruppe">
 
-    ${
-        a.aktiv === false
-        ? `
-        <button
-            class="editButton"
-            onclick="artikelDeaktivieren(${a.id})"
-            ♻️
-        </button>
-        `
-        : `
-        <button
-            class="editButton"
-            onclick="artikelDeaktivieren(${a.id})"
-            ✏️
-        </button>
+${a.aktiv ?
 
-        <button
-            class="deleteButton"
-            onclick="artikelDeaktivieren(${a.id})"
-            🗑️
-        </button>
-        `
-    }
+`
+
+<button
+class="editButton"
+onclick="artikelBearbeiten(${a.id})">
+✏️
+</button>
+
+<button
+class="deleteButton"
+onclick="artikelDeaktivieren(${a.id})">
+🗑️
+</button>
+
+`
+
+:
+
+`
+
+<button
+class="editButton"
+onclick="artikelAktivieren(${a.id})">
+♻️
+</button>
+
+`
+
+}
 
 </div>
 
@@ -96,10 +108,10 @@ function renderSettings() {
     html += `
 
 <button
-    class="neuButton"
-    onclick="neuesGetraenk()">
+class="neuButton"
+onclick="neuesGetraenk()">
 
-    ➕ Neuer Artikel
+➕ Neuer Artikel
 
 </button>
 
@@ -109,26 +121,11 @@ function renderSettings() {
 
 }
 
+function toggleInaktive(status){
 
-function preisSpeichern() {
+    zeigeInaktive = status;
 
-    artikel.forEach((a, index) => {
-
-        const feld =
-            document.getElementById("preis" + index);
-
-        a.preis =
-            parseFloat(feld.value) || a.preis;
-
-    });
-
-    datenSpeichern();
-
-    renderGetraenke();
-
-    renderWarenkorb();
-
-    toggleSettings();
+    renderSettings();
 
 }
 
@@ -136,7 +133,7 @@ function neuesGetraenk(){
 
     neuerArtikel = true;
 
-    artikelIndex = -1;
+    artikelId = null;
 
     document.getElementById("dialogTitel").innerText =
         "➕ Neuer Artikel";
@@ -150,23 +147,20 @@ function neuesGetraenk(){
 
 }
 
-function artikelBearbeiten(index){
+function artikelBearbeiten(id){
 
     neuerArtikel = false;
 
-document.getElementById("dialogTitel").innerText =
-    "✏️ Artikel bearbeiten";
-   
-    artikelIndex = index;
+    artikelId = id;
 
-    document.getElementById("editEmoji").value =
-        artikel[index].emoji;
+    const a = artikelNachId(id);
 
-    document.getElementById("editName").value =
-        artikel[index].name;
+    document.getElementById("dialogTitel").innerText =
+        "✏️ Artikel bearbeiten";
 
-    document.getElementById("editPreis").value =
-        artikel[index].preis;
+    document.getElementById("editEmoji").value = a.emoji;
+    document.getElementById("editName").value = a.name;
+    document.getElementById("editPreis").value = a.preis;
 
     document.getElementById("artikelDialog").style.display =
         "flex";
@@ -184,34 +178,48 @@ function artikelSpeichern(){
 
     if(neuerArtikel){
 
-    artikel.push({
+        const neueId =
+            Math.max(...artikel.map(a => a.id),0)+1;
 
-    emoji: document.getElementById("editEmoji").value,
+        artikel.push({
 
-    name: document.getElementById("editName").value,
+            id: neueId,
 
-    preis: parseFloat(
-        document.getElementById("editPreis").value
-    ) || 0,
+            emoji: document.getElementById("editEmoji").value,
 
-    aktiv: true
+            name: document.getElementById("editName").value,
 
-});
+            preis: parseFloat(
+                document.getElementById("editPreis").value
+            ) || 0,
 
-}else{
-   
-        artikel[artikelIndex].emoji =
-        document.getElementById("editEmoji").value;
+            kategorie: "Sonstiges",
 
-    artikel[artikelIndex].name =
-        document.getElementById("editName").value;
+            lagerartikel: false,
 
-    artikel[artikelIndex].preis =
-        parseFloat(
-            document.getElementById("editPreis").value
-        );
-}
-    
+            lager: null,
+
+            aktiv: true
+
+        });
+
+    }else{
+
+        const a = artikelNachId(artikelId);
+
+        a.emoji =
+            document.getElementById("editEmoji").value;
+
+        a.name =
+            document.getElementById("editName").value;
+
+        a.preis =
+            parseFloat(
+                document.getElementById("editPreis").value
+            ) || 0;
+
+    }
+
     datenSpeichern();
 
     renderGetraenke();
@@ -221,16 +229,16 @@ function artikelSpeichern(){
     dialogSchliessen();
 
 }
+function artikelDeaktivieren(id){
 
-function artikelDeaktivieren(index) {
+    const a = artikelNachId(id);
 
-    const artikelName = artikel[index].name;
+    if(!a) return;
 
-    if (!confirm(`"${artikelName}" wirklich deaktivieren?`)) {
+    if(!confirm(`"${a.name}" wirklich deaktivieren?`))
         return;
-    }
 
-    artikel[index].aktiv = false;
+    a.aktiv = false;
 
     datenSpeichern();
 
@@ -240,21 +248,29 @@ function artikelDeaktivieren(index) {
 
 }
 
-function toggleInaktive(status){
+function artikelAktivieren(id){
 
-    zeigeInaktive = status;
+    const a = artikelNachId(id);
+
+    if(!a) return;
+
+    a.aktiv = true;
+
+    datenSpeichern();
+
+    renderGetraenke();
 
     renderSettings();
 
 }
 
-function artikelAktivieren(index){
-
-    artikel[index].aktiv = true;
+function preisSpeichern(){
 
     datenSpeichern();
 
     renderGetraenke();
+
+    renderWarenkorb();
 
     renderSettings();
 
