@@ -312,11 +312,7 @@ document.getElementById("rueckgeld").innerText = "0,00 €";
 
 datenSpeichern();
 
-renderWarenkorb();
-
-renderGetraenke();
-
-updateDashboard();
+refreshUI();
 
 alert("✅ Verkauf abgeschlossen.");
 
