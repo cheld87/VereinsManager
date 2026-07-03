@@ -23,6 +23,35 @@ ${a.lagerartikel && a.lager.flaschen <= 0
     ? ""
     : `onclick="artikelKlicken(${a.id})"`}
 >
+${
+a.lagerartikel
+?
+`
+<div class="lagerStatus ${
+
+    a.lager.flaschen <= 0
+    ? "statusRot"
+
+    : a.lager.flaschen <= a.lager.mindestbestand
+    ? "statusGelb"
+
+    : "statusGruen"
+
+}">
+${
+    a.lager.flaschen <= 0
+    ? "LEER"
+
+    : a.lager.flaschen <= a.lager.mindestbestand
+    ? "KNAPP"
+
+    : "OK"
+}
+</div>
+`
+:
+""
+}
                     <div class="emoji">${a.emoji}</div>
 
                     <div class="name">${a.name}</div>
