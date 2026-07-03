@@ -7,6 +7,7 @@
 // Laufende Daten
 let umsatz = 0;
 let warenkorb = [];
+let statistik = {};
 
 // ===================================
 // Start
