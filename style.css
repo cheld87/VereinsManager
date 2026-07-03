@@ -522,3 +522,13 @@ color:white;
     font-weight:bold;
 
 }
+
+.ausverkauft{
+
+    opacity:0.45;
+
+    filter:grayscale(100%);
+
+    cursor:not-allowed;
+
+}
