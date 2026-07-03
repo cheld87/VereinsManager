@@ -13,9 +13,9 @@ function datenSpeichern() {
 
         warenkorb,
 
-        artikel
+        artikel,
 
-        statistik: statistik,
+        statistik,
         
     };
 
@@ -63,16 +63,12 @@ function datenLaden() {
 
             aktiv: a.aktiv ?? true
 
-                statistik = daten.statistik || {};
             
         }));
 
     }
-
+    
+statistik = daten.statistik || {};
+    
 }
 
-if(!statistik){
-
-    statistik = {};
-
-}
