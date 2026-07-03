@@ -66,20 +66,20 @@ function renderSettings() {
         ? `
         <button
             class="editButton"
-            onclick="artikelAktivieren(${index})">
+            onclick="artikelDeaktivieren(${a.id})"
             ♻️
         </button>
         `
         : `
         <button
             class="editButton"
-            onclick="artikelBearbeiten(${index})">
+            onclick="artikelDeaktivieren(${a.id})"
             ✏️
         </button>
 
         <button
             class="deleteButton"
-            onclick="artikelDeaktivieren(${index})">
+            onclick="artikelDeaktivieren(${a.id})"
             🗑️
         </button>
         `
