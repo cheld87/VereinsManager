@@ -534,3 +534,47 @@ color:white;
     cursor:not-allowed;
 
 }
+
+.getraenk{
+
+    position:relative;
+
+}
+
+.lagerStatus{
+
+    position:absolute;
+
+    top:8px;
+
+    right:8px;
+
+    padding:3px 8px;
+
+    border-radius:12px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+.statusGruen{
+
+    background:#2e7d32;
+
+}
+
+.statusGelb{
+
+    background:#f9a825;
+
+}
+
+.statusRot{
+
+    background:#c62828;
+
+}
