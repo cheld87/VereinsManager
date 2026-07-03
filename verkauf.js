@@ -246,105 +246,71 @@ function verkaufLoeschen() {
 
 function verkaufAbschliessen() {
 
-    warenkorb.forEach(a => {
-
-    console.log(a);
-
-    if(!statistik[a.id]){
-
-        statistik[a.id] = {
-            verkauft: 0
-        };
-
-    }
-
-    statistik[a.id].verkauft++;
-
-    console.log(statistik);
-
-    const artikelInfo = artikel.find(x => x.id === a.id);
-        
     if (warenkorb.length === 0) {
-
         alert("Warenkorb ist leer.");
-
         return;
-
     }
 
     const bezahlt =
-        parseFloat(
-            document.getElementById("bezahlt").value
-        ) || 0;
+        parseFloat(document.getElementById("bezahlt").value) || 0;
 
-    const gesamt =
-        berechneGesamt();
+    const gesamt = berechneGesamt();
 
     if (bezahlt < gesamt) {
-
         alert("Zu wenig Geld erhalten.");
-
         return;
-
     }
 
     umsatz += gesamt;
 
     warenkorb.forEach(a => {
 
-    if(!statistik[a.id]){
+        // Statistik
+        if (!statistik[a.id]) {
+            statistik[a.id] = {
+                verkauft: 0
+            };
+        }
 
-        statistik[a.id] = {
-            verkauft: 0
-        };
+        statistik[a.id].verkauft++;
 
-    }
+        // Lager
+        const artikelInfo = artikel.find(x => x.id === a.id);
 
-    statistik[a.id].verkauft++;
+        if (!artikelInfo) return;
 
-    // dein Lagercode...
+        if (!artikelInfo.lagerartikel) return;
 
-    const artikelInfo = artikel.find(x => x.id === a.id);
+        artikelInfo.lager.flaschen--;
 
-    if (!artikelInfo) return;
+        if (artikelInfo.lager.flaschen < 0) {
 
-    if (!artikelInfo.lagerartikel) return;
-       
-        console.log("Vorher:", artikelInfo.lager);
-       
-    artikelInfo.lager.flaschen--;
+            if (artikelInfo.lager.kaesten > 0) {
 
-      console.log("Nachher:", artikelInfo.lager);   
+                artikelInfo.lager.kaesten--;
 
-    if (artikelInfo.lager.flaschen < 0) {
+                artikelInfo.lager.flaschen =
+                    artikelInfo.lager.flaschenProKasten - 1;
 
-        if (artikelInfo.lager.kaesten > 0) {
+            } else {
 
-            artikelInfo.lager.kaesten--;
+                artikelInfo.lager.flaschen = 0;
 
-            artikelInfo.lager.flaschen =
-    artikelInfo.lager.flaschenProKasten - 1;
-
-        } else {
-
-            artikelInfo.lager.flaschen = 0;
+            }
 
         }
 
-    }
+    });
 
-});
- 
-warenkorb = [];
+    warenkorb = [];
 
-document.getElementById("bezahlt").value = "";
+    document.getElementById("bezahlt").value = "";
+    document.getElementById("rueckgeld").innerText = "0,00 €";
 
-document.getElementById("rueckgeld").innerText = "0,00 €";
+    datenSpeichern();
 
-datenSpeichern();
+    refreshUI();
 
-refreshUI();
-
-alert("✅ Verkauf abgeschlossen.");
+    alert("✅ Verkauf abgeschlossen.");
 
 }
