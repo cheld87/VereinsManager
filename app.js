@@ -71,3 +71,69 @@ function updateDashboard(){
 
 document.getElementById("version").innerText =
     `${app.verein} · Version ${app.version} · Build ${app.build}`;
+
+function showLagerStatus(){
+
+    let html = "";
+
+    const leer = artikel.filter(a =>
+        a.lagerartikel &&
+        a.lager.flaschen <= 0
+    );
+
+    const knapp = artikel.filter(a =>
+        a.lagerartikel &&
+        a.lager.flaschen > 0 &&
+        a.lager.flaschen <= a.lager.mindestbestand
+    );
+
+    html += "<h2>📦 Lagerstatus</h2>";
+
+    html += "<h3>🔴 Leer</h3>";
+
+    if(leer.length === 0){
+
+        html += "<p>Keine Artikel leer.</p>";
+
+    }else{
+
+        leer.forEach(a=>{
+
+            html += `
+                <div class="lagerEintrag">
+                    ${a.emoji} ${a.name}
+                </div>
+            `;
+
+        });
+
+    }
+
+    html += "<h3>🟡 Knapp</h3>";
+
+    if(knapp.length === 0){
+
+        html += "<p>Keine Artikel knapp.</p>";
+
+    }else{
+
+        knapp.forEach(a=>{
+
+            html += `
+                <div class="lagerEintrag">
+                    ${a.emoji} ${a.name}
+                    (${a.lager.flaschen})
+                </div>
+            `;
+
+        });
+
+    }
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+    document.getElementById("lagerDialog").style.display =
+        "flex";
+
+}
