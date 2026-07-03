@@ -246,6 +246,24 @@ function verkaufLoeschen() {
 
 function verkaufAbschliessen() {
 
+    warenkorb.forEach(a => {
+
+    console.log(a);
+
+    if(!statistik[a.id]){
+
+        statistik[a.id] = {
+            verkauft: 0
+        };
+
+    }
+
+    statistik[a.id].verkauft++;
+
+    console.log(statistik);
+
+    const artikelInfo = artikel.find(x => x.id === a.id);
+        
     if (warenkorb.length === 0) {
 
         alert("Warenkorb ist leer.");
