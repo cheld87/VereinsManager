@@ -147,46 +147,36 @@ function showLagerStatus(){
 
     }else{
 
-        knapp.forEach(a=>{
+       knapp.forEach(a => {
 
+    html += `
+<div class="lagerCard">
 
-            html += `
-            <div class="lagerCard">
-            <div class="lagerTitel">
-
+    <div class="lagerTitel">
         <span>${a.emoji} ${a.name}</span>
 
         <span class="lagerBadge statusGelb">
             KNAPP
         </span>
-
     </div>
 
     <div class="lagerBestand">
-
         Bestand:
-        📦 ${a.lager.kaesten}
-        |
+        📦 ${a.lager.kaesten} |
         🍾 ${a.lager.flaschen}
-
     </div>
 
     <div class="lagerButtons">
-
-        <button
-            onclick="lagerPlus(${a.id},'kaesten')">
-
+        <button onclick="lagerPlus(${a.id},'kaesten')">
             + Kiste
-
         </button>
-
     </div>
 
 </div>
 `;
 
-        });
-
+});
+        
     }
 
     document.getElementById("lagerDialogInhalt").innerHTML =
