@@ -15,7 +15,7 @@ function datenSpeichern() {
 
         artikel,
 
-        statistik,
+        statistik
         
     };
 
