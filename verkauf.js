@@ -232,6 +232,34 @@ function verkaufAbschliessen() {
 
     umsatz += gesamt;
 
+    warenkorb.forEach(a => {
+
+    const artikelInfo = artikel.find(x => x.id === a.id);
+
+    if (!artikelInfo) return;
+
+    if (!artikelInfo.lagerartikel) return;
+
+    artikelInfo.lager.flaschen--;
+
+    if (artikelInfo.lager.flaschen < 0) {
+
+        if (artikelInfo.lager.kaesten > 0) {
+
+            artikelInfo.lager.kaesten--;
+
+            artikelInfo.lager.flaschen =
+                artikelInfo.lager.flaschenProKasten - 1;
+
+        } else {
+
+            artikelInfo.lager.flaschen = 0;
+
+        }
+
+    }
+
+});
     warenkorb = [];
 
     document.getElementById("bezahlt").value = "";
