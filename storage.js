@@ -15,6 +15,8 @@ function datenSpeichern() {
 
         artikel
 
+        statistik: statistik,
+        
     };
 
     localStorage.setItem(
@@ -61,6 +63,8 @@ function datenLaden() {
 
             aktiv: a.aktiv ?? true
 
+                statistik = daten.statistik || {};
+            
         }));
 
     }
