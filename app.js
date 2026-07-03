@@ -192,3 +192,21 @@ function showLagerStatus(){
         "flex";
 
 }
+
+function refreshUI(){
+
+    renderGetraenke();
+
+    renderWarenkorb();
+
+    renderSettings();
+
+    updateDashboard();
+
+    if(document.getElementById("lagerDialog").style.display === "flex"){
+
+        renderLagerStatus();
+
+    }
+
+}
