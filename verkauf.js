@@ -16,8 +16,13 @@ function renderGetraenke() {
         .forEach(a => {
 
             grid.innerHTML += `
-                <div class="getraenk" onclick="artikelKlicken(${a.id})">
+                <div
+class="getraenk ${a.lagerartikel && a.lager.flaschen <= 0 ? 'ausverkauft' : ''}"
 
+${a.lagerartikel && a.lager.flaschen <= 0
+    ? ""
+    : `onclick="artikelKlicken(${a.id})"`}
+>
                     <div class="emoji">${a.emoji}</div>
 
                     <div class="name">${a.name}</div>
