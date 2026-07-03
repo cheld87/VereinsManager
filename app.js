@@ -36,9 +36,6 @@ function updateDashboard(){
     document.getElementById("kasse").innerText =
         (app.startKasse + umsatz).toFixed(2) + " €";
 
-    document.getElementById("entnahme").innerText =
-        umsatz.toFixed(2) + " €";
-
 
     let ok = 0;
     let knapp = 0;
