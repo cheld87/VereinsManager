@@ -28,8 +28,20 @@ ${
     a.lagerartikel
         ? `
         <div class="lagerInfo">
-            📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
-        </div>
+
+    <span class="${
+        a.lager.flaschen <= 0
+        ? "lagerRot"
+        : a.lager.flaschen <= a.lager.mindestbestand
+        ? "lagerGelb"
+        : "lagerGruen"
+    }">
+
+        📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
+
+    </span>
+
+</div>
         `
         : ""
 }
