@@ -330,13 +330,7 @@ function lagerPlus(id, feld){
 
     datenSpeichern();
 
-    renderSettings();
-
-    renderGetraenke();
-
-    updateDashboard();
-
-    renderLagerStatus();
+    refreshUI();
 
 }
 
@@ -371,11 +365,5 @@ function lagerMinus(id, feld){
 
     datenSpeichern();
 
-    renderSettings();
-
-    renderGetraenke();
-
-    updateDashboard();
-    
-    renderLagerStatus();
+    refreshUI();
 }
