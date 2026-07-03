@@ -334,6 +334,10 @@ function lagerPlus(id, feld){
 
     renderGetraenke();
 
+    updateDashboard();
+
+    showLagerStatus();
+
 }
 
 function lagerMinus(id, feld){
@@ -371,4 +375,7 @@ function lagerMinus(id, feld){
 
     renderGetraenke();
 
+    updateDashboard();
+    
+    showLagerStatus();
 }
