@@ -249,7 +249,7 @@ function verkaufAbschliessen() {
             artikelInfo.lager.kaesten--;
 
             artikelInfo.lager.flaschen =
-                artikelInfo.lager.flaschenProKasten - 1;
+    artikelInfo.lager.flaschenProKasten - 1;
 
         } else {
 
