@@ -22,7 +22,17 @@ function renderGetraenke() {
 
                     <div class="name">${a.name}</div>
 
-                    <div class="preis">${a.preis.toFixed(2)} €</div>
+                   <div class="preis">${a.preis.toFixed(2)} €</div>
+
+${
+    a.lagerartikel
+    ?
+    `<div class="lagerInfo">
+        📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
+    </div>`
+    :
+    ""
+}
 
                 </div>
             `;
