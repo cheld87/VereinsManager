@@ -43,7 +43,7 @@ function renderSettings() {
 `;
     artikel
         .filter(a => zeigeInaktive || a.aktiv !== false)
-        .forEach((a, index) => {
+        onclick="artikelBearbeiten(${a.id})"
           
             console.log(a.name, a.aktiv);
             
@@ -66,20 +66,20 @@ function renderSettings() {
         ? `
         <button
             class="editButton"
-            onclick="artikelAktivieren(${index})">
+           onclick="artikelAktivieren(${a.id})"
             ♻️
         </button>
         `
         : `
         <button
             class="editButton"
-            onclick="artikelBearbeiten(${index})">
+            onclick="artikelBearbeiten(${a.id})"
             ✏️
         </button>
 
         <button
             class="deleteButton"
-            onclick="artikelDeaktivieren(${index})">
+            onclick="artikelDeaktivieren(${a.id})"
             🗑️
         </button>
         `
@@ -150,23 +150,23 @@ function neuesGetraenk(){
 
 }
 
-function artikelBearbeiten(index){
-
+function artikelBearbeiten(id){
+    
     neuerArtikel = false;
 
 document.getElementById("dialogTitel").innerText =
     "✏️ Artikel bearbeiten";
    
-    artikelIndex = index;
+    artikelIndex = id;
 
     document.getElementById("editEmoji").value =
-        artikel[index].emoji;
+      artikelNachId(id).emoji;
 
     document.getElementById("editName").value =
-        artikel[index].name;
+        artikelNachId(id).name;
 
     document.getElementById("editPreis").value =
-        artikel[index].preis;
+        artikelNachId(id).preis;
 
     document.getElementById("artikelDialog").style.display =
         "flex";
@@ -200,13 +200,13 @@ function artikelSpeichern(){
 
 }else{
    
-        artikel[artikelIndex].emoji =
+        artikelNachId(artikelIndex).emoji =
         document.getElementById("editEmoji").value;
 
-    artikel[artikelIndex].name =
+    artikelNachId(artikelIndex).name =
         document.getElementById("editName").value;
 
-    artikel[artikelIndex].preis =
+    artikelNachId(artikelIndex).preis =
         parseFloat(
             document.getElementById("editPreis").value
         );
@@ -222,21 +222,19 @@ function artikelSpeichern(){
 
 }
 
-function artikelDeaktivieren(index) {
+function artikelDeaktivieren(id){
+    
+    const a = artikelNachId(id);
 
-    const artikelName = artikel[index].name;
+if(!confirm(`"${a.name}" wirklich deaktivieren?`)) return;
 
-    if (!confirm(`"${artikelName}" wirklich deaktivieren?`)) {
-        return;
-    }
+a.aktiv = false;
 
-    artikel[index].aktiv = false;
+datenSpeichern();
 
-    datenSpeichern();
+renderGetraenke();
 
-    renderGetraenke();
-
-    renderSettings();
+renderSettings();
 
 }
 
@@ -248,14 +246,22 @@ function toggleInaktive(status){
 
 }
 
-function artikelAktivieren(index){
+function artikelAktivieren(id){
 
-    artikel[index].aktiv = true;
+    const a = artikelNachId(id);
+
+    a.aktiv = true;
 
     datenSpeichern();
 
     renderGetraenke();
 
     renderSettings();
+
+}
+
+function artikelNachId(id){
+
+    return artikel.find(a => a.id === id);
 
 }
