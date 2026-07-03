@@ -26,13 +26,16 @@ function renderGetraenke() {
 
 ${
     a.lagerartikel
-    ?
-    `<div class="lagerInfo">
-        📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
-    </div>`
-    :
-    ""
+        ? `
+        <div class="lagerInfo">
+            📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
+        </div>
+        `
+        : ""
 }
+
+                </div>
+            `;
 
         });
 
