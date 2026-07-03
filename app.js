@@ -100,10 +100,40 @@ function showLagerStatus(){
         leer.forEach(a=>{
 
             html += `
-                <div class="lagerEintrag">
-                    ${a.emoji} ${a.name}
-                </div>
-            `;
+<div class="lagerCard">
+
+    <div class="lagerTitel">
+
+        <span>${a.emoji} ${a.name}</span>
+
+        <span class="lagerBadge statusRot">
+            LEER
+        </span>
+
+    </div>
+
+    <div class="lagerBestand">
+
+        Bestand:
+        📦 ${a.lager.kaesten}
+        |
+        🍾 ${a.lager.flaschen}
+
+    </div>
+
+    <div class="lagerButtons">
+
+        <button
+            onclick="lagerPlus(${a.id},'kaesten')">
+
+            + Kiste
+
+        </button>
+
+    </div>
+
+</div>
+`;
 
         });
 
@@ -120,11 +150,41 @@ function showLagerStatus(){
         knapp.forEach(a=>{
 
             html += `
-                <div class="lagerEintrag">
-                    ${a.emoji} ${a.name}
-                    (${a.lager.flaschen})
-                </div>
-            `;
+                html += `
+<div class="lagerCard">
+
+    <div class="lagerTitel">
+
+        <span>${a.emoji} ${a.name}</span>
+
+        <span class="lagerBadge statusGelb">
+            KNAPP
+        </span>
+
+    </div>
+
+    <div class="lagerBestand">
+
+        Bestand:
+        📦 ${a.lager.kaesten}
+        |
+        🍾 ${a.lager.flaschen}
+
+    </div>
+
+    <div class="lagerButtons">
+
+        <button
+            onclick="lagerPlus(${a.id},'kaesten')">
+
+            + Kiste
+
+        </button>
+
+    </div>
+
+</div>
+`;
 
         });
 
