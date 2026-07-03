@@ -264,18 +264,19 @@ function verkaufAbschliessen() {
     }
 
 });
-    warenkorb = [];
+ warenkorb = [];
 
 document.getElementById("bezahlt").value = "";
 
 document.getElementById("rueckgeld").innerText = "0,00 €";
 
+datenSpeichern();
+
 renderWarenkorb();
+
 renderGetraenke();
 
 updateDashboard();
-
-datenSpeichern();
 
 alert("✅ Verkauf abgeschlossen.");
 
