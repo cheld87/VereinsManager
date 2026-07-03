@@ -61,8 +61,43 @@ Inaktive Artikel anzeigen
 
 <small>${a.preis.toFixed(2)} €</small>
 
-</div>
+${
+a.lagerartikel
+?
+`
+<div class="lagerEditor">
 
+    <div class="lagerZeile">
+
+        <span>📦</span>
+
+        <button onclick="lagerMinus(${a.id},'kaesten')">−</button>
+
+        <span>${a.lager.kaesten}</span>
+
+        <button onclick="lagerPlus(${a.id},'kaesten')">+</button>
+
+    </div>
+
+    <div class="lagerZeile">
+
+        <span>🍾</span>
+
+        <button onclick="lagerMinus(${a.id},'flaschen')">−</button>
+
+        <span>${a.lager.flaschen}</span>
+
+        <button onclick="lagerPlus(${a.id},'flaschen')">+</button>
+
+    </div>
+
+</div>
+`
+:
+""
+}
+
+</div>
 <div class="buttonGruppe">
 
 ${a.aktiv ?
@@ -273,5 +308,37 @@ function preisSpeichern(){
     renderWarenkorb();
 
     renderSettings();
+
+}
+
+function lagerPlus(id, feld){
+
+    const a = artikelNachId(id);
+
+    a.lager[feld]++;
+
+    datenSpeichern();
+
+    renderSettings();
+
+    renderGetraenke();
+
+}
+
+function lagerMinus(id, feld){
+
+    const a = artikelNachId(id);
+
+    if(a.lager[feld] > 0){
+
+        a.lager[feld]--;
+
+    }
+
+    datenSpeichern();
+
+    renderSettings();
+
+    renderGetraenke();
 
 }
