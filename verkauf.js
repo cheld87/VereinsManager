@@ -34,7 +34,7 @@ function renderGetraenke() {
 function artikelKlicken(id) {
 
     const artikelInfo =
-        artikel.find(a => a.name === name);
+    artikel.find(a => a.id === id);
 
     if (!artikelInfo) return;
 
@@ -49,7 +49,7 @@ function artikelKlicken(id) {
 function artikelMinus(id) {
 
     const index =
-        warenkorb.findIndex(a => a.name === name);
+    warenkorb.findIndex(a => a.id === id);
 
     if (index === -1) return;
 
@@ -134,11 +134,11 @@ function renderWarenkorb() {
 
     <div class="warenkorbButtons">
 
-        <button onclick="artikelMinus('${a.name}')">−</button>
+        <button onclick="artikelMinus(${a.id})">−</button>
 
         <span>${a.menge}</span>
 
-        <button onclick="artikelKlicken('${a.name}')">+</button>
+        <button onclick="artikelKlicken(${a.id})">+</button>
 
     </div>
 
