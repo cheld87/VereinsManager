@@ -257,11 +257,7 @@ function artikelSpeichern(){
 
     datenSpeichern();
 
-    renderGetraenke();
-
-    renderSettings();
-
-    dialogSchliessen();
+    refreshUI();
 
 }
 function artikelDeaktivieren(id){
@@ -277,9 +273,7 @@ function artikelDeaktivieren(id){
 
     datenSpeichern();
 
-    renderGetraenke();
-
-    renderSettings();
+    refreshUI();
 
 }
 
@@ -293,9 +287,7 @@ function artikelAktivieren(id){
 
     datenSpeichern();
 
-    renderGetraenke();
-
-    renderSettings();
+    refreshUI();
 
 }
 
