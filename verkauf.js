@@ -92,17 +92,16 @@ function renderWarenkorb() {
 
     warenkorb.forEach(a => {
 
-        if (!gruppiert[a.name]) {
+       if (!gruppiert[a.id]) {
 
-            gruppiert[a.name] = {
-                ...a,
-                menge: 0
-            };
+    gruppiert[a.id] = {
+        ...a,
+        menge: 0
+    };
 
-        }
+}
 
-        gruppiert[a.name].menge++;
-
+gruppiert[a.id].menge++;
     });
 
     let html = "";
