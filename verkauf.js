@@ -31,7 +31,7 @@ function renderGetraenke() {
 
 }
 
-function artikelKlicken(name) {
+function artikelKlicken(id) {
 
     const artikelInfo =
         artikel.find(a => a.name === name);
@@ -46,7 +46,7 @@ function artikelKlicken(name) {
 
 }
 
-function artikelMinus(name) {
+function artikelMinus(id) {
 
     const index =
         warenkorb.findIndex(a => a.name === name);
