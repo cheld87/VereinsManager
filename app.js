@@ -149,11 +149,10 @@ function showLagerStatus(){
 
         knapp.forEach(a=>{
 
-            html += `
-                html += `
-<div class="lagerCard">
 
-    <div class="lagerTitel">
+            html += `
+            <div class="lagerCard">
+            <div class="lagerTitel">
 
         <span>${a.emoji} ${a.name}</span>
 
