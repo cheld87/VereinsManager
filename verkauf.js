@@ -28,24 +28,18 @@ a.lagerartikel
 ?
 `
 <div class="lagerStatus ${
-
     a.lager.flaschen <= 0
-    ? "statusRot"
-
-    : a.lager.flaschen <= a.lager.mindestbestand
-    ? "statusGelb"
-
-    : "statusGruen"
-
+        ? "statusRot"
+        : a.lager.flaschen <= a.lager.mindestbestand
+        ? "statusGelb"
+        : "statusGruen"
 }">
 ${
     a.lager.flaschen <= 0
-    ? "LEER"
-
-    : a.lager.flaschen <= a.lager.mindestbestand
-    ? "KNAPP"
-
-    : "OK"
+        ? "LEER"
+        : a.lager.flaschen <= a.lager.mindestbestand
+        ? "NIEDRIG"
+        : "OK"
 }
 </div>
 `
