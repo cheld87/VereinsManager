@@ -75,7 +75,7 @@
         <strong id="kasse">150,00 €</strong>
     </div>
 
-    <div id="lagerStatus">
+    <div id="lagerStatus" onclick="showLagerStatus()">
         <span>📦 Lager</span>
 
         <strong id="lagerOk">0 OK</strong>
@@ -222,6 +222,22 @@
     </div>
 
 </div>
+
+    <div id="lagerDialog" class="dialog">
+
+    <div class="dialogBox">
+
+        <button
+            class="closeButton"
+            onclick="document.getElementById('lagerDialog').style.display='none'">
+            ✖
+        </button>
+
+        <div id="lagerDialogInhalt"></div>
+
+    </div>
+
+</div> 
     
 </body>
 </html>
