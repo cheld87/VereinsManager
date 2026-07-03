@@ -11,6 +11,8 @@ const app = {
     startKasse: 150
 };
 
+let statistik = {};
+
 let artikel = [
 
 {
