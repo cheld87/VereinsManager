@@ -457,13 +457,15 @@ color:white;
 
 .lagerInfo{
 
-    margin-top:6px;
+    margin-top:8px;
 
-    font-size:12px;
+    font-size:14px;
 
-    color:#666;
+    font-weight:bold;
 
-    font-weight:600;
+    display:flex;
+
+    justify-content:center;
 
 }
 
