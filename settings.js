@@ -315,7 +315,18 @@ function lagerPlus(id, feld){
 
     const a = artikelNachId(id);
 
-    a.lager[feld]++;
+    if(!a || !a.lager) return;
+
+    if(feld === "kaesten"){
+
+        a.lager.kaesten++;
+        a.lager.flaschen += a.lager.flaschenProKasten;
+
+    }else{
+
+        a.lager.flaschen++;
+
+    }
 
     datenSpeichern();
 
@@ -329,9 +340,28 @@ function lagerMinus(id, feld){
 
     const a = artikelNachId(id);
 
-    if(a.lager[feld] > 0){
+    if(!a || !a.lager) return;
 
-        a.lager[feld]--;
+    if(feld === "kaesten"){
+
+        if(a.lager.kaesten > 0){
+
+            a.lager.kaesten--;
+
+            a.lager.flaschen = Math.max(
+                0,
+                a.lager.flaschen - a.lager.flaschenProKasten
+            );
+
+        }
+
+    }else{
+
+        if(a.lager.flaschen > 0){
+
+            a.lager.flaschen--;
+
+        }
 
     }
 
