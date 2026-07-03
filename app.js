@@ -39,6 +39,37 @@ function updateDashboard(){
     document.getElementById("entnahme").innerText =
         umsatz.toFixed(2) + " €";
 
+
+    let ok = 0;
+    let knapp = 0;
+    let leer = 0;
+
+    artikel.forEach(a => {
+
+        if(!a.lagerartikel) return;
+
+        if(a.lager.flaschen <= 0){
+
+            leer++;
+
+        }else if(a.lager.flaschen <= a.lager.mindestbestand){
+
+            knapp++;
+
+        }else{
+
+            ok++;
+
+        }
+
+    });
+
+    document.getElementById("lagerOk").innerText =
+        ok + " OK";
+
+    document.getElementById("lagerWarnung").innerText =
+        knapp + " KNAPP • " + leer + " LEER";
+
 }
 
 document.getElementById("version").innerText =
