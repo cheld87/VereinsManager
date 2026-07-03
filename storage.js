@@ -66,3 +66,9 @@ function datenLaden() {
     }
 
 }
+
+if(!statistik){
+
+    statistik = {};
+
+}
