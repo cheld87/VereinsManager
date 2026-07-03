@@ -43,7 +43,7 @@ function renderSettings() {
 `;
     artikel
         .filter(a => zeigeInaktive || a.aktiv !== false)
-        .forEach((a, index) => {
+        .forEach((a) => {
           
             console.log(a.name, a.aktiv);
             
