@@ -150,3 +150,67 @@ function abschlussSpeichern(){
     alert("✅ Kassenabschluss gespeichert.");
 
 }
+
+function showAbschlussHistorie(){
+
+    let html = `
+    
+    <h2>📚 Abschlusshistorie</h2>
+    
+    `;
+
+    if(abschluesse.length === 0){
+
+        html += `
+        <p>Noch keine Abschlüsse vorhanden.</p>
+        `;
+
+    }else{
+
+        abschluesse
+        .slice()
+        .reverse()
+        .forEach(a=>{
+
+            html += `
+
+            <div class="lagerCard">
+
+                <h3>${a.datum}</h3>
+
+                <p>
+                Umsatz:
+                <b>${a.umsatz.toFixed(2)} €</b>
+                </p>
+
+                <p>
+                Soll:
+                <b>${a.soll.toFixed(2)} €</b>
+                </p>
+
+                <p>
+                Ist:
+                <b>${a.ist.toFixed(2)} €</b>
+                </p>
+
+                <p>
+                Differenz:
+                <b>${a.differenz.toFixed(2)} €</b>
+                </p>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+    document.getElementById("lagerDialog").style.display =
+        "flex";
+
+}
