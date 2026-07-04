@@ -80,20 +80,17 @@ function berechneDifferenz(){
 
     const soll = app.startKasse + umsatz;
 
-    const ist =
-        parseFloat(
-            document.getElementById("istbestand").value
-        ) || 0;
+    const ist = parseFloat(
+        document.getElementById("istbestand").value
+    ) || 0;
 
     const diff = ist - soll;
 
-    const feld =
-        document.getElementById("differenz");
+    const feld = document.getElementById("differenz");
 
     if(diff === 0){
 
-        feld.innerHTML =
-            "🟢 Kasse stimmt";
+        feld.innerHTML = "🟢 Kasse stimmt";
 
     }else if(diff < 0){
 
