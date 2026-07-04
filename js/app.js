@@ -72,4 +72,7 @@ function updateDashboard(){
 document.getElementById("version").innerText =
     `${app.verein} · Version ${app.version} · Build ${app.build}`;
 
+const top = getTopSeller();
 
+document.getElementById("topseller").innerText =
+    top ? `${top.name} (${top.verkauft})` : "-";
