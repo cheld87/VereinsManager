@@ -150,10 +150,18 @@ onclick="neuesGetraenk()">
 
 </button>
 
+<button
+class="neuButton"
+onclick="showStatistik()">
+
+📊 Statistik
+
+</button>
+
 `;
 
-    container.innerHTML = html;
-
+container.innerHTML = html;
+    
 }
 
 function toggleInaktive(status){
