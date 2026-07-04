@@ -66,3 +66,41 @@ function getTop5(){
         .slice(0,5);
 
 }
+
+function showStatistik(){
+
+    const top5 = getTop5();
+
+    let html = "<h2>🏆 Top 5 Verkäufe</h2>";
+
+    if(top5.length === 0){
+
+        html += "<p>Noch keine Verkäufe vorhanden.</p>";
+
+    }else{
+
+        top5.forEach((a,index)=>{
+
+            html += `
+                <div class="lagerCard">
+
+                    <div class="lagerTitel">
+
+                        <span>${index+1}. ${a.emoji} ${a.name}</span>
+
+                        <span>${a.verkauft} verkauft</span>
+
+                    </div>
+
+                </div>
+            `;
+
+        });
+
+    }
+
+    document.getElementById("lagerDialogInhalt").innerHTML = html;
+
+    document.getElementById("lagerDialog").style.display = "flex";
+
+}
