@@ -158,6 +158,14 @@ onclick="showStatistik()">
 
 </button>
 
+<button
+class="neuButton"
+onclick="backupErstellen()">
+
+💾 Backup erstellen
+
+</button>
+
 `;
 
 container.innerHTML = html;
