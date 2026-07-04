@@ -36,7 +36,6 @@ function updateDashboard(){
     document.getElementById("kasse").innerText =
         (app.startKasse + umsatz).toFixed(2) + " €";
 
-
     let ok = 0;
     let knapp = 0;
     let leer = 0;
@@ -67,12 +66,14 @@ function updateDashboard(){
     document.getElementById("lagerWarnung").innerText =
         knapp + " KNAPP • " + leer + " LEER";
 
+    // 👇 DIESE ZEILEN MÜSSEN HIER REIN
+
+    const top = getTopSeller();
+
+    document.getElementById("topseller").innerText =
+        top ? `${top.name} (${top.verkauft})` : "-";
+
 }
 
 document.getElementById("version").innerText =
     `${app.verein} · Version ${app.version} · Build ${app.build}`;
-
-const top = getTopSeller();
-
-document.getElementById("topseller").innerText =
-    top ? `${top.name} (${top.verkauft})` : "-";
