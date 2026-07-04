@@ -108,6 +108,45 @@ function berechneDifferenz(){
 
 function abschlussSpeichern(){
 
-    alert("Kassenabschluss kommt im nächsten Schritt 😊");
+    if(!confirm("Kassenabschluss wirklich durchführen?")){
+
+        return;
+
+    }
+
+    const soll = app.startKasse + umsatz;
+
+    const ist =
+        parseFloat(
+            document.getElementById("istbestand").value
+        ) || 0;
+
+    abschluesse.push({
+
+        datum: new Date().toLocaleString(),
+
+        startkasse: app.startKasse,
+
+        umsatz: umsatz,
+
+        soll: soll,
+
+        ist: ist,
+
+        differenz: ist - soll
+
+    });
+
+    umsatz = 0;
+
+    warenkorb = [];
+
+    datenSpeichern();
+
+    refreshUI();
+
+    document.getElementById("lagerDialog").style.display = "none";
+
+    alert("✅ Kassenabschluss gespeichert.");
 
 }
