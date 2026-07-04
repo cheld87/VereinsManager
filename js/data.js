@@ -13,6 +13,8 @@ const app = {
 
 let statistik = {};
 
+let abschluesse = [];
+
 let artikel = [
 
 {
