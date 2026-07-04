@@ -169,6 +169,17 @@ onclick="backupErstellen()">
 
 </button>
 
+<label class="neuButton">
+
+📥 Backup laden
+
+<input
+type="file"
+style="display:none"
+onchange="backupLaden(event)">
+
+</label>
+
 `;
 
 container.innerHTML = html;
