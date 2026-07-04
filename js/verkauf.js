@@ -266,13 +266,7 @@ function verkaufAbschliessen() {
     warenkorb.forEach(a => {
 
         // Statistik
-        if (!statistik[a.id]) {
-            statistik[a.id] = {
-                verkauft: 0
-            };
-        }
-
-        statistik[a.id].verkauft++;
+        verkaufRegistrieren(a.id);
 
         // Lager
         const artikelInfo = artikel.find(x => x.id === a.id);
