@@ -15,7 +15,9 @@ function datenSpeichern() {
 
         artikel,
 
-        statistik
+        statistik,
+
+        abschluesse
         
     };
 
@@ -69,6 +71,8 @@ function datenLaden() {
     }
     
 statistik = daten.statistik || {};
+
+abschluesse = daten.abschluesse || []; 
     
 }
 
