@@ -5,10 +5,12 @@
 // ===================================
 
 const app = {
-    version: "0.3.0",
-    build: "0010",
+
+    version: "0.5.0 Alpha",
+    build: "2026.07.04",
     verein: "FV Matzenberg",
     startKasse: 150
+
 };
 
 let statistik = {};
