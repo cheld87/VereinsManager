@@ -50,3 +50,37 @@ function backupErstellen(){
     link.click();
 
 }
+
+function backupLaden(event){
+
+    const datei = event.target.files[0];
+
+    if(!datei) return;
+
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(e){
+
+        const daten =
+            JSON.parse(e.target.result);
+
+
+        localStorage.setItem(
+            "vereinsmanager",
+            JSON.stringify(daten)
+        );
+
+
+        alert("Backup wiederhergestellt. App startet neu.");
+
+
+        location.reload();
+
+    };
+
+
+    reader.readAsText(datei);
+
+}
