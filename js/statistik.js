@@ -4,8 +4,6 @@
 // Version 0.4.0 Alpha
 // ===================================
 
-let statistik = {};
-
 function verkaufRegistrieren(id){
 
     if(!statistik[id]){
