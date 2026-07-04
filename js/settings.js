@@ -3,8 +3,6 @@
 // settings.js
 // Version 0.3.0
 // ===================================
-console.log("settings geladen");
-
 let artikelId = null;
 let neuerArtikel = false;
 let zeigeInaktive = false;
