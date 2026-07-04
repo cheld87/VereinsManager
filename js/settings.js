@@ -12,18 +12,22 @@ function artikelNachId(id) {
     return artikel.find(a => a.id === id);
 }
 
-function toggleSettings() {
+function toggleSettings(){
 
-    const fenster = document.getElementById("settings");
+    const settings =
+        document.getElementById("settings");
 
-    if (fenster.style.display === "block") {
-        fenster.style.display = "none";
-        return;
+    if(settings.style.display === "none"){
+
+        settings.style.display = "block";
+
+        renderSettings();
+
+    }else{
+
+        settings.style.display = "none";
+
     }
-
-    fenster.style.display = "block";
-
-    renderSettings();
 
 }
 
