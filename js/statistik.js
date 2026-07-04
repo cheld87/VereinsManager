@@ -45,3 +45,24 @@ function getTopSeller(){
     return top;
 
 }
+
+function getTop5(){
+
+    return artikel
+        .map(a => ({
+
+            emoji: a.emoji,
+
+            name: a.name,
+
+            verkauft: statistik[a.id]?.verkauft || 0
+
+        }))
+
+        .filter(a => a.verkauft > 0)
+
+        .sort((a,b) => b.verkauft - a.verkauft)
+
+        .slice(0,5);
+
+}
