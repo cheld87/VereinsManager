@@ -108,3 +108,9 @@ function berechneDifferenz(){
     }
 
 }
+
+function abschlussSpeichern(){
+
+    alert("Kassenabschluss kommt im nächsten Schritt 😊");
+
+}
