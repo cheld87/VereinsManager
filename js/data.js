@@ -15,15 +15,15 @@ var app = {
 
 };
 
+
 let statistik = {};
 
 let abschluesse = [];
 
-let artikel = []
-    
 let mitglieder = [];
 
-{
+let artikel = [
+    
     id: 1,
     emoji: "🍺",
     name: "UrPils",
