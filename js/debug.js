@@ -15,3 +15,13 @@ window.onerror = function(msg, url, line){
     );
 
 };
+
+
+console.log("Debug aktiv");
+
+
+function testDebug(){
+
+    alert("Debug läuft");
+
+}
