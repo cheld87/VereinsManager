@@ -4,8 +4,6 @@
 // Version 0.3.0 Alpha
 // ===================================
 
-alert("data.js geladen");
-
 var app = {
 
     version: "0.5.1 Alpha",
