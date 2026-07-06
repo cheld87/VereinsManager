@@ -4,7 +4,7 @@
 // Version 0.3.0 Alpha
 // ===================================
 
-const app = {
+var app = {
 
     version: "0.5.1 Alpha",
     build: "2026.07.05",
