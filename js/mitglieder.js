@@ -61,6 +61,14 @@ onclick="mitgliedEinzahlung(${m.id})">
 
 </button>
 
+<button
+class="neuButton"
+onclick="mitgliedVerlauf(${m.id})">
+
+📜 Verlauf
+
+</button>
+
             </div>
 
             `;
@@ -270,9 +278,75 @@ function verkaufAufMitglied(id){
 
 }
 
+function mitgliedVerlauf(id){
+
+    const m =
+        mitglieder.find(x => x.id === id);
+
+
+    if(!m) return;
+
+
+    let html = `
+
+    <h2>📜 ${m.name}</h2>
+
+    <h3>
+    Kontostand:
+    ${m.konto.toFixed(2)} €
+    </h3>
+
+    `;
+
+
+    if(m.verlauf.length === 0){
+
+        html += `
+        <p>Noch keine Bewegungen.</p>
+        `;
+
+    }else{
+
+
+        m.verlauf
+        .slice()
+        .reverse()
+        .forEach(v=>{
+
+
+            html += `
+
+            <div class="lagerCard">
+
+            <b>${v.text}</b>
+
+            <br>
+
+            ${v.datum}
+
+            <br>
+
+            ${v.betrag.toFixed(2)} €
+
+            </div>
+
+            `;
+
+
+        });
+
+    }
+
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
 window.mitgliedEinzahlung = mitgliedEinzahlung;
 window.mitgliedAuswahl = mitgliedAuswahl;
 window.verkaufAufMitglied = verkaufAufMitglied;
+window.mitgliedVerlauf = mitgliedVerlauf;
