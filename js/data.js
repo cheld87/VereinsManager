@@ -21,6 +21,8 @@ let statistik = {};
 let abschluesse = [];
 
 let artikel = [
+    
+let mitglieder = [];
 
 {
     id: 1,
