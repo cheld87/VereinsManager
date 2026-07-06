@@ -17,7 +17,7 @@ let statistik = {};
 
 let abschluesse = [];
 
-let artikel = [
+let artikel = []
     
 let mitglieder = [];
 
