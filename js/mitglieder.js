@@ -10,6 +10,7 @@
 // Version 0.6.0 Alpha
 // ===================================
 
+alert("mitglieder.js geladen");
 
 function showMitglieder(){
 
