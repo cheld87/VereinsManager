@@ -67,6 +67,8 @@ function datenLaden() {
 
             aktiv: a.aktiv ?? true
 
+            mitglieder =
+    daten.mitglieder || [];
             
         }));
 
