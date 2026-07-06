@@ -33,16 +33,27 @@ function showMitglieder(){
 
         mitglieder.forEach(m => {
 
+let status = "⚪";
+
+if(m.konto > 0){
+
+    status = "🟢";
+
+}else if(m.konto < 0){
+
+    status = "🔴";
+
+}
 
             html += `
 
             <div class="lagerCard">
 
-                <h3>👤 ${m.name}</h3>
+                <h3>${status} ${m.name}</h3>
 
                 <p>
                     Kontostand:
-                    <b>${m.konto.toFixed(2)} €</b>
+                    ${m.konto >= 0 ? "+" : ""}${m.konto.toFixed(2)} €
                 </p>
                 
                 <button
