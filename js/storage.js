@@ -17,7 +17,9 @@ function datenSpeichern() {
 
         statistik,
 
-        abschluesse
+        abschluesse,
+        
+        mitglieder
         
     };
 
