@@ -2,12 +2,6 @@
 // VereinsManager
 // mitglieder.js
 // Version 0.6.0 Alpha
-// Mitgliederkonten
-// ===================================
-// ===================================
-// VereinsManager
-// mitglieder.js
-// Version 0.6.0 Alpha
 // ===================================
 
 
@@ -230,4 +224,8 @@ function mitgliedAuswahl(){
 }
 
 
+window.showMitglieder = showMitglieder;
+window.mitgliedNeu = mitgliedNeu;
+window.mitgliedLoeschen = mitgliedLoeschen;
+window.mitgliedEinzahlung = mitgliedEinzahlung;
 window.mitgliedAuswahl = mitgliedAuswahl;
