@@ -6,9 +6,12 @@
 
 const app = {
 
-    version: "0.5.0 Alpha",
-    build: "2026.07.04",
+    version: "0.5.1 Alpha",
+
+    build: "2026.07.05",
+
     verein: "FV Matzenberg",
+
     startKasse: 150
 
 };
