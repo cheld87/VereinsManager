@@ -223,9 +223,56 @@ function mitgliedAuswahl(){
 
 }
 
+function verkaufAufMitglied(id){
+
+    const m =
+        mitglieder.find(x => x.id === id);
+
+
+    if(!m) return;
+
+
+    const gesamt =
+        berechneGesamt();
+
+
+    m.konto -= gesamt;
+
+
+    m.verlauf.push({
+
+        datum: new Date().toLocaleString(),
+
+        text: "Getränke",
+
+        betrag: -gesamt
+
+    });
+
+
+    verkaufAbschliessenOhneZahlung();
+
+
+    datenSpeichern();
+
+
+    document.getElementById("lagerDialog").style.display =
+        "none";
+
+
+    alert(
+        "Auf " +
+        m.name +
+        " gebucht.\n\nNeuer Stand: " +
+        m.konto.toFixed(2) +
+        " €"
+    );
+
+}
 
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
 window.mitgliedEinzahlung = mitgliedEinzahlung;
 window.mitgliedAuswahl = mitgliedAuswahl;
+window.verkaufAufMitglied = verkaufAufMitglied;
