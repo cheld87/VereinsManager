@@ -50,6 +50,14 @@ function showMitglieder(){
                     Kontostand:
                     <b>${m.konto.toFixed(2)} €</b>
                 </p>
+                
+                <button
+class="deleteButton"
+onclick="mitgliedLoeschen(${m.id})">
+
+🗑 Löschen
+
+</button>
 
             </div>
 
@@ -101,3 +109,26 @@ function mitgliedNeu(){
     showMitglieder();
 
 }
+
+function mitgliedLoeschen(id){
+
+    if(!confirm("Mitglied wirklich löschen?")){
+        return;
+    }
+
+
+    mitglieder =
+        mitglieder.filter(
+            m => m.id !== id
+        );
+
+
+    datenSpeichern();
+
+    showMitglieder();
+
+}
+
+
+window.mitgliedLoeschen =
+    mitgliedLoeschen;
