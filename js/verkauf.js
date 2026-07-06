@@ -308,3 +308,40 @@ function verkaufAbschliessen() {
     alert("✅ Verkauf abgeschlossen.");
 
 }
+
+function verkaufAbschliessenOhneZahlung(){
+
+    umsatz += berechneGesamt();
+
+
+    warenkorb.forEach(a=>{
+
+        const artikelInfo =
+            artikel.find(x=>x.id === a.id);
+
+
+        if(!artikelInfo) return;
+
+
+        if(artikelInfo.lagerartikel){
+
+            artikelInfo.lager.flaschen--;
+
+        }
+
+    });
+
+
+    warenkorb = [];
+
+
+    datenSpeichern();
+
+
+    refreshUI();
+
+}
+
+
+window.verkaufAbschliessenOhneZahlung =
+    verkaufAbschliessenOhneZahlung;
