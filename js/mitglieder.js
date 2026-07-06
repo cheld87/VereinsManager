@@ -183,3 +183,51 @@ window.mitgliedLoeschen =
 
 window.mitgliedEinzahlung =
     mitgliedEinzahlung;
+    
+function mitgliedAuswahl(){
+
+    if(warenkorb.length === 0){
+
+        alert("Warenkorb ist leer.");
+
+        return;
+
+    }
+
+
+    let html = `
+
+    <h2>👥 Mitglied auswählen</h2>
+
+    `;
+
+
+    mitglieder.forEach(m=>{
+
+        html += `
+
+        <button
+        class="neuButton"
+        onclick="verkaufAufMitglied(${m.id})">
+
+        👤 ${m.name}
+        (${m.konto.toFixed(2)} €)
+
+        </button>
+
+        `;
+
+    });
+
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+
+    document.getElementById("lagerDialog").style.display =
+        "flex";
+
+}
+
+
+window.mitgliedAuswahl = mitgliedAuswahl;
