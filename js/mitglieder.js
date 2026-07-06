@@ -4,6 +4,13 @@
 // Version 0.6.0 Alpha
 // Mitgliederkonten
 // ===================================
+// ===================================
+// VereinsManager
+// mitglieder.js
+// Version 0.6.0 Alpha
+// ===================================
+
+
 function showMitglieder(){
 
     let html = `
@@ -20,36 +27,13 @@ function showMitglieder(){
     
     `;
 
-
     if(mitglieder.length === 0){
 
         html += `
         <p>Noch keine Mitglieder angelegt.</p>
         `;
 
-    }else{
-
-        mitglieder.forEach(m=>{
-
-            html += `
-
-            <div class="lagerCard">
-
-                <h3>${m.name}</h3>
-
-                <p>
-                Kontostand:
-                <b>${m.konto.toFixed(2)} €</b>
-                </p>
-
-            </div>
-
-            `;
-
-        });
-
     }
-
 
     document.getElementById("lagerDialogInhalt").innerHTML =
         html;
@@ -58,6 +42,10 @@ function showMitglieder(){
         "flex";
 
 }
+
+
+// WICHTIG:
+// diese Funktion kommt NACH der letzten Klammer von showMitglieder
 
 function mitgliedNeu(){
 
