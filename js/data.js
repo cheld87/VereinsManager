@@ -23,7 +23,8 @@ let abschluesse = [];
 let mitglieder = [];
 
 let artikel = [
-    
+
+{   
     id: 1,
     emoji: "🍺",
     name: "UrPils",
