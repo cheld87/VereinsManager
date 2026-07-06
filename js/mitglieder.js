@@ -59,6 +59,14 @@ onclick="mitgliedLoeschen(${m.id})">
 
 </button>
 
+<button
+class="neuButton"
+onclick="mitgliedEinzahlung(${m.id})">
+
+💵 Einzahlung
+
+</button>
+
             </div>
 
             `;
@@ -132,3 +140,46 @@ function mitgliedLoeschen(id){
 
 window.mitgliedLoeschen =
     mitgliedLoeschen;
+    
+    function mitgliedEinzahlung(id){
+
+    const m =
+        mitglieder.find(x => x.id === id);
+
+
+    if(!m) return;
+
+
+    const betrag =
+        parseFloat(
+            prompt("Einzahlung Betrag:")
+        );
+
+
+    if(!betrag) return;
+
+
+    m.konto += betrag;
+
+
+    m.verlauf.push({
+
+        datum: new Date().toLocaleString(),
+
+        text: "Einzahlung",
+
+        betrag: betrag
+
+    });
+
+
+    datenSpeichern();
+
+
+    showMitglieder();
+
+}
+
+
+window.mitgliedEinzahlung =
+    mitgliedEinzahlung;
