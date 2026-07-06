@@ -31,7 +31,14 @@ function showMitglieder(){
     }else{
 
 
-        mitglieder.forEach(m => {
+        mitglieder
+.slice()
+.sort((a,b)=>{
+
+    return a.konto - b.konto;
+
+})
+.forEach(m=>{
 
 let status = "⚪";
 
