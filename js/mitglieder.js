@@ -58,3 +58,30 @@ function showMitglieder(){
         "flex";
 
 }
+
+function mitgliedNeu(){
+
+    const name =
+        prompt("Name des Mitglieds:");
+
+    if(!name) return;
+
+
+    mitglieder.push({
+
+        id: Date.now(),
+
+        name: name,
+
+        konto: 0,
+
+        verlauf: []
+
+    });
+
+
+    datenSpeichern();
+
+    showMitglieder();
+
+}
