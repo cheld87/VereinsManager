@@ -124,7 +124,3 @@ artikel.forEach(a=>{
 
 window.datenLaden =
     datenLaden;
-
-
-window.datenSpeichern =
-    datenSpeichern;
