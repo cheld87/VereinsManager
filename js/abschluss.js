@@ -42,6 +42,12 @@ function showKassenabschluss(){
 
 <div class="lagerCard">
 
+<label>Notiz</label>
+
+<input
+    id="abschlussNotiz"
+    placeholder="z.B. Training / Spieltag">
+
     <label>Istbestand</label>
 
     <input
@@ -83,6 +89,11 @@ function berechneDifferenz(){
     const ist = parseFloat(
         document.getElementById("istbestand").value
     ) || 0;
+    
+    const notiz =
+    document.getElementById("abschlussNotiz").value
+    ||
+    "";
 
     const diff = ist - soll;
 
@@ -133,7 +144,9 @@ function abschlussSpeichern(){
 
         ist: ist,
 
-        differenz: ist - soll
+        differenz: ist - soll,
+        
+        notiz: notiz
 
     });
 
@@ -177,6 +190,10 @@ function showAbschlussHistorie(){
             <div class="lagerCard">
 
                 <h3>${a.datum}</h3>
+                
+                <p>
+                📝 ${a.notiz || ""}
+                </p>
 
                 <p>
                 Umsatz:
