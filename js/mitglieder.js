@@ -526,18 +526,19 @@ function aufStrichliste(id){
     warenkorb = [];
 
 
-    datenSpeichern();
+datenSpeichern();
 
 
-    refreshUI();
-
-
-    document.getElementById("lagerDialogInhalt").innerHTML =
-    html;
+refreshUI();
 
 
 document.getElementById("lagerDialog").style.display =
-    "flex";
+    "none";
+
+
+alert(
+    "Auf Strichliste gespeichert"
+);
 
 
 }
@@ -616,7 +617,12 @@ function zeigeStrichliste(id){
 
 
     document.getElementById("lagerDialogInhalt").innerHTML =
-        html;
+    html;
+
+
+document.getElementById("lagerDialog").style.display =
+    "flex";
+
 
 }
 
