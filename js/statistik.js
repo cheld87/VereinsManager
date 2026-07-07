@@ -6,6 +6,15 @@
 
 function verkaufRegistrieren(id){
 
+
+    const a =
+        artikel.find(x => x.id === id);
+
+
+    if(!a) return;
+
+
+    // alte Statistik weiterführen
     if(!statistik[id]){
 
         statistik[id] = {
@@ -16,7 +25,37 @@ function verkaufRegistrieren(id){
 
     }
 
+
     statistik[id].verkauft++;
+
+
+    // neue Monatsstatistik
+    if(!statistik.verlauf){
+
+        statistik.verlauf = [];
+
+    }
+
+
+    statistik.verlauf.push({
+
+        datum:
+        new Date().toISOString(),
+
+        id:
+        id,
+
+        name:
+        a.name,
+
+        emoji:
+        a.emoji,
+
+        preis:
+        a.preis
+
+    });
+
 
 }
 
