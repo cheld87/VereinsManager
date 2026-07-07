@@ -532,13 +532,13 @@ function aufStrichliste(id){
     refreshUI();
 
 
-    document.getElementById("lagerDialog").style.display =
-        "none";
+    document.getElementById("lagerDialogInhalt").innerHTML =
+    html;
 
 
-    alert(
-        "Auf Strichliste gespeichert"
-    );
+document.getElementById("lagerDialog").style.display =
+    "flex";
+
 
 }
 
