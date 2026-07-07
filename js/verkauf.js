@@ -14,6 +14,20 @@ function renderGetraenke() {
     artikel
         .filter(a => a.aktiv !== false)
         .forEach(a => {
+            
+            let flaschen = 0;
+            let kaesten = 0;
+
+
+            if(a.lager){
+
+            flaschen =
+            Number(a.lager.flaschen) || 0;
+
+            kaesten =
+            Number(a.lager.kaesten) || 0;
+
+}
 
             grid.innerHTML += `
                 <div
@@ -54,24 +68,24 @@ ${
 
 ${
     a.lagerartikel
-        ? `
-        <div class="lagerInfo">
+    ? `
+    <div class="lagerInfo">
 
-    <span class="${
-        a.lager.flaschen <= 0
-        ? "lagerRot"
-        : a.lager.flaschen <= a.lager.mindestbestand
-        ? "lagerGelb"
-        : "lagerGruen"
-    }">
+        <span class="${
+            flaschen <= 0
+            ? "lagerRot"
+            : flaschen <= a.lager.mindestbestand
+            ? "lagerGelb"
+            : "lagerGruen"
+        }">
 
-        📦 ${a.lager.kaesten} | 🍾 ${a.lager.flaschen}
+            📦 ${kaesten} | 🍾 ${flaschen}
 
-    </span>
+        </span>
 
-</div>
-        `
-        : ""
+    </div>
+    `
+    : ""
 }
 
                 </div>
