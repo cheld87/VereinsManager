@@ -179,6 +179,11 @@ window.mitgliedLoeschen =
     if(!betrag) return;
 
 
+    // Geld kommt wirklich rein
+    umsatz += betrag;
+
+
+    // Mitgliedskonto erhöhen
     m.konto += betrag;
 
 
@@ -194,6 +199,9 @@ window.mitgliedLoeschen =
 
 
     datenSpeichern();
+
+
+    refreshUI();
 
 
     showMitglieder();
