@@ -425,6 +425,52 @@ function mitgliedVerlauf(id){
 
 }
 
+function strichlisteAuswahl(){
+
+    if(warenkorb.length === 0){
+
+        alert("Warenkorb ist leer.");
+
+        return;
+
+    }
+
+
+    let html = `
+
+    <h2>📋 Strichliste wählen</h2>
+
+    `;
+
+
+    mitglieder.forEach(m=>{
+
+
+        html += `
+
+        <button
+        class="neuButton"
+        onclick="aufStrichliste(${m.id})">
+
+        👤 ${m.name}
+
+        </button>
+
+        `;
+
+
+    });
+
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+
+    document.getElementById("lagerDialog").style.display =
+        "flex";
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
@@ -432,3 +478,4 @@ window.mitgliedEinzahlung = mitgliedEinzahlung;
 window.mitgliedAuswahl = mitgliedAuswahl;
 window.verkaufAufMitglied = verkaufAufMitglied;
 window.mitgliedVerlauf = mitgliedVerlauf;
+window.strichlisteAuswahl = strichlisteAuswahl;
