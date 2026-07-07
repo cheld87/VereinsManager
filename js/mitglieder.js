@@ -516,9 +516,15 @@ function aufStrichliste(id){
 
         if(a && a.lagerartikel){
 
-            a.lager.flaschen -= w.menge;
+    if(isNaN(a.lager.flaschen)){
 
-        }
+        a.lager.flaschen = 0;
+
+    }
+
+    a.lager.flaschen -= w.menge;
+
+}
 
     });
 
