@@ -123,3 +123,10 @@ artikel.forEach(a=>{
 });           
 
 datenSpeichern();
+
+window.datenLaden =
+    datenLaden;
+
+
+window.datenSpeichern =
+    datenSpeichern;
