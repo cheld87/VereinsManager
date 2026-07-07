@@ -94,11 +94,15 @@ artikel.forEach(a=>{
 
     if(a.lager){
 
-        if(isNaN(a.lager.flaschen)){
+        if(
+    a.lager.flaschen === null ||
+    a.lager.flaschen === undefined ||
+    isNaN(a.lager.flaschen)
+){
 
-            a.lager.flaschen = 0;
+    a.lager.flaschen = 0;
 
-        }
+}
 
 
         if(isNaN(a.lager.kaesten)){
