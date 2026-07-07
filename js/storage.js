@@ -78,6 +78,17 @@ statistik = daten.statistik || {};
 abschluesse = daten.abschluesse || []; 
 
 mitglieder = daten.mitglieder || [];
-    
+
+    mitglieder.forEach(m=>{
+
+    if(!m.strichliste){
+
+        m.strichliste = [];
+
+    }
+
+});
+            
 }
 
+ 
