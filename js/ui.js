@@ -14,9 +14,18 @@ function refreshUI(){
         renderSettings();
     }
 
-    if(document.getElementById("lagerDialog").style.display === "flex"){
-        renderLagerStatus();
-    }
+    const lagerDialog =
+    document.getElementById("lagerDialog");
+
+
+if(
+    lagerDialog &&
+    lagerDialog.style.display === "flex"
+){
+
+    renderLagerStatus();
+
+}
 
 }
 
