@@ -510,7 +510,7 @@ function aufStrichliste(id){
     
 
 
-    warenkorb = [];
+verkaufAbschliessenOhneZahlung();
 
 
 datenSpeichern();
