@@ -19,3 +19,12 @@ function refreshUI(){
     }
 
 }
+
+function zeigeVersion(){
+
+    document.getElementById("version").innerText =
+        `${app.verein} · Version ${app.version} · Build ${app.build}`;
+
+}
+
+window.zeigeVersion = zeigeVersion;
