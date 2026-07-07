@@ -291,22 +291,16 @@ function verkaufAbschliessen() {
 
         artikelInfo.lager.flaschen--;
 
-        if (artikelInfo.lager.flaschen < 0) {
+if(artikelInfo.lager.flaschen < 0){
+    artikelInfo.lager.flaschen = 0;
+}
 
-            if (artikelInfo.lager.kaesten > 0) {
 
-                artikelInfo.lager.kaesten--;
-
-                artikelInfo.lager.flaschen =
-                    artikelInfo.lager.flaschenProKasten - 1;
-
-            } else {
-
-                artikelInfo.lager.flaschen = 0;
-
-            }
-
-        }
+artikelInfo.lager.kaesten =
+    Math.floor(
+        artikelInfo.lager.flaschen /
+        artikelInfo.lager.flaschenProKasten
+    );
 
     });
 
@@ -353,22 +347,18 @@ if(artikelInfo.lagerartikel && artikelInfo.lager){
     artikelInfo.lager.flaschen--;
 
 
-    if(artikelInfo.lager.flaschen < 0){
+if(artikelInfo.lager.flaschen < 0){
 
-        if(artikelInfo.lager.kaesten > 0){
+    artikelInfo.lager.flaschen = 0;
 
-            artikelInfo.lager.kaesten--;
+}
 
-            artikelInfo.lager.flaschen =
-                proKasten - 1;
 
-        }else{
-
-            artikelInfo.lager.flaschen = 0;
-
-        }
-
-    }
+artikelInfo.lager.kaesten =
+    Math.floor(
+        artikelInfo.lager.flaschen /
+        proKasten
+    );
 
 }
 
