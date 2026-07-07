@@ -165,15 +165,17 @@ function mitgliedNeu(){
 
     mitglieder.push({
 
-        id: Date.now(),
+    id: Date.now(),
 
-        name: name,
+    name: name,
 
-        konto: 0,
+    konto: 0,
 
-        verlauf: []
+    strichliste: [],
 
-    });
+    verlauf: []
+
+});
 
 
     datenSpeichern();
