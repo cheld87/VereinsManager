@@ -95,21 +95,25 @@ artikel.forEach(a=>{
     if(a.lager){
 
         if(
-    a.lager.flaschen === null ||
-    a.lager.flaschen === undefined ||
-    isNaN(a.lager.flaschen)
-){
+            a.lager.flaschen === null ||
+            a.lager.flaschen === undefined ||
+            isNaN(a.lager.flaschen)
+        ){
 
-    a.lager.flaschen = 0;
+            a.lager.flaschen = 0;
 
-}
+        }
 
 
         if(
-    a.lager.kaesten === null ||
-    a.lager.kaesten === undefined ||
-    isNaN(a.lager.kaesten)
-){
+            a.lager.kaesten === null ||
+            a.lager.kaesten === undefined ||
+            isNaN(a.lager.kaesten)
+        ){
+
+            a.lager.kaesten = 0;
+
+        }
 
 
         if(!a.lager.flaschenProKasten){
@@ -120,7 +124,9 @@ artikel.forEach(a=>{
 
     }
 
-});           
+});
+
+}
 
 // Funktionen freigeben
 window.datenLaden = datenLaden;
