@@ -75,9 +75,8 @@ function updateDashboard(){
 
 }
 
-function zeigeVersion(){
+datenLaden();
 
-    document.getElementById("version").innerText =
-        `${app.verein} · Version ${app.version} · Build ${app.build}`;
+refreshUI();
 
-}
+zeigeVersion();
