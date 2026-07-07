@@ -131,6 +131,14 @@ onclick="mitgliedVerlauf(${m.id})">
 
 </button>
 
+<button
+class="neuButton"
+onclick="zeigeStrichliste(${m.id})">
+
+📋 Strichliste
+
+</button>
+
             </div>
 
             `;
@@ -534,6 +542,84 @@ function aufStrichliste(id){
 
 }
 
+function zeigeStrichliste(id){
+
+    const m =
+        mitglieder.find(x=>x.id === id);
+
+
+    if(!m) return;
+
+
+    let gesamt = 0;
+
+
+    let html = `
+
+    <h2>📋 ${m.name}</h2>
+
+    `;
+
+
+    if(m.strichliste.length === 0){
+
+        html += `
+        <p>Keine offenen Getränke.</p>
+        `;
+
+    }else{
+
+
+        m.strichliste.forEach(s=>{
+
+
+            const summe =
+                s.preis * s.menge;
+
+
+            gesamt += summe;
+
+
+            html += `
+
+            <div class="lagerCard">
+
+                ${s.name}
+
+                <br>
+
+                ${s.menge}x
+
+                <br>
+
+                ${summe.toFixed(2)} €
+
+            </div>
+
+            `;
+
+
+        });
+
+
+        html += `
+
+        <h3>
+        Gesamt:
+        ${gesamt.toFixed(2)} €
+        </h3>
+
+        `;
+
+
+    }
+
+
+    document.getElementById("lagerDialogInhalt").innerHTML =
+        html;
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
@@ -543,3 +629,4 @@ window.verkaufAufMitglied = verkaufAufMitglied;
 window.mitgliedVerlauf = mitgliedVerlauf;
 window.strichlisteAuswahl = strichlisteAuswahl;
 window.aufStrichliste = aufStrichliste;
+window.zeigeStrichliste = zeigeStrichliste;
