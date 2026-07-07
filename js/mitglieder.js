@@ -508,25 +508,40 @@ function aufStrichliste(id){
 
 
     // Lager direkt reduzieren
-    warenkorb.forEach(w=>{
+warenkorb.forEach(w=>{
 
-        const a =
-            artikel.find(x=>x.id === w.id);
+    const a =
+        artikel.find(x => x.id === w.id);
 
 
-        if(a && a.lagerartikel){
+    if(a && a.lagerartikel){
 
-    if(isNaN(a.lager.flaschen)){
 
-        a.lager.flaschen = 0;
+        if(typeof a.lager.flaschen !== "number"){
+
+            a.lager.flaschen = 0;
+
+        }
+
+
+        a.lager.flaschen -= w.menge;
+
+
+        while(
+            a.lager.flaschen < 0 &&
+            a.lager.kaesten > 0
+        ){
+
+            a.lager.kaesten--;
+
+            a.lager.flaschen +=
+                a.lager.flaschenProKasten;
+
+        }
 
     }
 
-    a.lager.flaschen -= w.menge;
-
-}
-
-    });
+});
 
 
     warenkorb = [];
