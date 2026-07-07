@@ -10,8 +10,14 @@ window.onerror = function(msg, url, line){
 
     alert(
         "⚠️ Fehler erkannt\n\n" +
+
         msg +
-        "\n\nZeile: " + line
+
+        "\n\nDatei:\n" +
+        url +
+
+        "\n\nZeile: " +
+        line
     );
 
 };
