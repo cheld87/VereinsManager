@@ -21,6 +21,50 @@ function showMitglieder(){
     
     `;
 
+let offen = 0;
+let guthaben = 0;
+
+
+mitglieder.forEach(m=>{
+
+
+    if(m.konto < 0){
+
+        offen += m.konto;
+
+    }
+
+
+    if(m.konto > 0){
+
+        guthaben += m.konto;
+
+    }
+
+
+});
+
+
+html += `
+
+<div class="lagerCard">
+
+    <h3>📊 Übersicht</h3>
+
+    <p>
+    🔴 Offen:
+    <b>${Math.abs(offen).toFixed(2)} €</b>
+    </p>
+
+
+    <p>
+    🟢 Guthaben:
+    <b>${guthaben.toFixed(2)} €</b>
+    </p>
+
+</div>
+
+`;
 
     if(mitglieder.length === 0){
 
