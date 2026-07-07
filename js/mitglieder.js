@@ -592,12 +592,30 @@ function zeigeStrichliste(id){
 
         html += `
 
-        <h3>
-        Gesamt:
-        ${gesamt.toFixed(2)} €
-        </h3>
+<h3>
+Gesamt:
+${gesamt.toFixed(2)} €
+</h3>
 
-        `;
+
+<button
+class="neuButton"
+onclick="strichlisteBar(${m.id})">
+
+💵 Bar bezahlt
+
+</button>
+
+
+<button
+class="neuButton"
+onclick="strichlisteKonto(${m.id})">
+
+👤 Vom Konto abbuchen
+
+</button>
+
+`;
 
 
     }
@@ -613,6 +631,56 @@ document.getElementById("lagerDialog").style.display =
 
 }
 
+function strichlisteBar(id){
+
+    const m =
+        mitglieder.find(x=>x.id === id);
+
+
+    if(!m) return;
+
+
+    let gesamt = 0;
+
+
+    m.strichliste.forEach(s=>{
+
+        gesamt +=
+            s.preis * s.menge;
+
+    });
+
+
+    umsatz += gesamt;
+
+
+    m.verlauf.push({
+
+        datum:
+        new Date().toLocaleString(),
+
+        text:
+        "Strichliste bar bezahlt",
+
+        betrag:
+        gesamt
+
+    });
+
+
+    m.strichliste = [];
+
+
+    datenSpeichern();
+
+
+    refreshUI();
+
+
+    showMitglieder();
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
@@ -623,3 +691,4 @@ window.mitgliedVerlauf = mitgliedVerlauf;
 window.strichlisteAuswahl = strichlisteAuswahl;
 window.aufStrichliste = aufStrichliste;
 window.zeigeStrichliste = zeigeStrichliste;
+window.strichlisteBar = strichlisteBar;
