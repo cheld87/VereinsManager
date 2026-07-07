@@ -131,6 +131,11 @@ function abschlussSpeichern(){
         parseFloat(
             document.getElementById("istbestand").value
         ) || 0;
+        
+        const notiz =
+        document.getElementById("abschlussNotiz").value
+        ||
+        "";
 
     abschluesse.push({
 
