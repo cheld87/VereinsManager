@@ -471,6 +471,69 @@ function strichlisteAuswahl(){
 
 }
 
+function aufStrichliste(id){
+
+    const m =
+        mitglieder.find(x => x.id === id);
+
+
+    if(!m) return;
+
+
+    warenkorb.forEach(w=>{
+
+
+        m.strichliste.push({
+
+            datum: new Date().toLocaleString(),
+
+            name: w.name,
+
+            preis: w.preis,
+
+            menge: w.menge
+
+        });
+
+
+    });
+
+
+    // Lager direkt reduzieren
+    warenkorb.forEach(w=>{
+
+        const a =
+            artikel.find(x=>x.id === w.id);
+
+
+        if(a && a.lagerartikel){
+
+            a.lager.flaschen -= w.menge;
+
+        }
+
+    });
+
+
+    warenkorb = [];
+
+
+    datenSpeichern();
+
+
+    refreshUI();
+
+
+    document.getElementById("lagerDialog").style.display =
+        "none";
+
+
+    alert(
+        "Auf Strichliste gespeichert"
+    );
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
@@ -479,3 +542,4 @@ window.mitgliedAuswahl = mitgliedAuswahl;
 window.verkaufAufMitglied = verkaufAufMitglied;
 window.mitgliedVerlauf = mitgliedVerlauf;
 window.strichlisteAuswahl = strichlisteAuswahl;
+window.aufStrichliste = aufStrichliste;
