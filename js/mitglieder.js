@@ -683,6 +683,58 @@ function strichlisteBar(id){
 
 }
 
+function strichlisteKonto(id){
+
+    const m =
+        mitglieder.find(x=>x.id === id);
+
+
+    if(!m) return;
+
+
+    let gesamt = 0;
+
+
+    m.strichliste.forEach(s=>{
+
+        gesamt +=
+            (Number(s.preis) || 0)
+            *
+            (Number(s.menge) || 1);
+
+    });
+
+
+    m.konto -= gesamt;
+
+
+    m.verlauf.push({
+
+        datum:
+        new Date().toLocaleString(),
+
+        text:
+        "Strichliste Konto",
+
+        betrag:
+        -gesamt
+
+    });
+
+
+    m.strichliste = [];
+
+
+    datenSpeichern();
+
+
+    refreshUI();
+
+
+    showMitglieder();
+
+}
+
 window.showMitglieder = showMitglieder;
 window.mitgliedNeu = mitgliedNeu;
 window.mitgliedLoeschen = mitgliedLoeschen;
@@ -694,3 +746,4 @@ window.strichlisteAuswahl = strichlisteAuswahl;
 window.aufStrichliste = aufStrichliste;
 window.zeigeStrichliste = zeigeStrichliste;
 window.strichlisteBar = strichlisteBar;
+window.strichlisteKonto = strichlisteKonto;
