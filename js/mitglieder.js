@@ -319,13 +319,23 @@ function verkaufAufMitglied(id){
 
     m.verlauf.push({
 
-        datum: new Date().toLocaleString(),
+    datum: new Date().toLocaleString(),
 
-        text: "Getränke",
+    text: "Getränke",
 
-        betrag: -gesamt
+    betrag: -gesamt,
 
-    });
+    artikel: warenkorb.map(a => ({
+
+        name: a.name,
+
+        menge: a.menge,
+
+        preis: a.preis
+
+    }))
+
+});
 
 
     verkaufAbschliessenOhneZahlung();
