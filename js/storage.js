@@ -122,5 +122,18 @@ artikel.forEach(a=>{
 
 });           
 
-window.datenLaden =
-    datenLaden;
+window.datenLaden = function(){
+
+    datenLaden();
+
+};
+
+
+window.datenSpeichern = function(){
+
+    datenSpeichern();
+
+};
+
+console.log("✅ STORAGE GELADEN");
+console.log(window.datenLaden);
