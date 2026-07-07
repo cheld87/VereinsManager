@@ -338,11 +338,39 @@ function verkaufAbschliessenOhneZahlung(){
 
         // Lager abbuchen
 
-        if(artikelInfo.lagerartikel){
+if(artikelInfo.lagerartikel && artikelInfo.lager){
 
-            artikelInfo.lager.flaschen--;
+    artikelInfo.lager.flaschen =
+        Number(artikelInfo.lager.flaschen) || 0;
+
+    artikelInfo.lager.kaesten =
+        Number(artikelInfo.lager.kaesten) || 0;
+
+    let proKasten =
+        Number(artikelInfo.lager.flaschenProKasten) || 24;
+
+
+    artikelInfo.lager.flaschen--;
+
+
+    if(artikelInfo.lager.flaschen < 0){
+
+        if(artikelInfo.lager.kaesten > 0){
+
+            artikelInfo.lager.kaesten--;
+
+            artikelInfo.lager.flaschen =
+                proKasten - 1;
+
+        }else{
+
+            artikelInfo.lager.flaschen = 0;
 
         }
+
+    }
+
+}
 
 
         // Statistik
