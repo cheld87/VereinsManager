@@ -416,7 +416,7 @@ function mitgliedVerlauf(id){
 
             <br>
 
-            ${v.betrag.toFixed(2)} €
+            ${(Number(v.betrag) || 0).toFixed(2)} €
 
             </div>
 
