@@ -493,15 +493,17 @@ function aufStrichliste(id){
 
         m.strichliste.push({
 
-            datum: new Date().toLocaleString(),
+    datum: new Date().toLocaleString(),
 
-            name: w.name,
+    id: w.id,
 
-            preis: w.preis,
+    name: w.name,
 
-            menge: w.menge
+    preis: Number(w.preis),
 
-        });
+    menge: Number(w.menge) || 1
+
+});
 
 
     });
