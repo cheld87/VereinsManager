@@ -132,6 +132,9 @@ function abschlussSpeichern(){
             document.getElementById("istbestand").value
         ) || 0;
         
+        const entnahme =
+        ist - 150;
+        
         const notiz =
         document.getElementById("abschlussNotiz").value
         ||
@@ -148,6 +151,8 @@ function abschlussSpeichern(){
         soll: soll,
 
         ist: ist,
+        
+        entnahme: entnahme,
 
         differenz: ist - soll,
         
@@ -155,19 +160,27 @@ function abschlussSpeichern(){
 
     });
 
-    umsatz = 0;
+        umsatz = 0;
+
+    app.startKasse = 150;
 
     warenkorb = [];
 
+
     datenSpeichern();
+
 
     refreshUI();
 
-    document.getElementById("lagerDialog").style.display = "none";
+
+    document.getElementById("lagerDialog").style.display =
+        "none";
+
 
     alert("✅ Kassenabschluss gespeichert.");
 
 }
+
 
 function showAbschlussHistorie(){
 
