@@ -227,6 +227,11 @@ function showAbschlussHistorie(){
                 Ist:
                 <b>${a.ist.toFixed(2)} €</b>
                 </p>
+                
+                <p>
+                💶 Entnahme:
+                <b>${a.entnahme.toFixed(2)} €</b>
+                </p>
 
                 <p>
                 Differenz:
