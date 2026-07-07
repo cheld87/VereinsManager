@@ -105,11 +105,11 @@ artikel.forEach(a=>{
 }
 
 
-        if(isNaN(a.lager.kaesten)){
-
-            a.lager.kaesten = 0;
-
-        }
+        if(
+    a.lager.kaesten === null ||
+    a.lager.kaesten === undefined ||
+    isNaN(a.lager.kaesten)
+){
 
 
         if(!a.lager.flaschenProKasten){
@@ -121,7 +121,5 @@ artikel.forEach(a=>{
     }
 
 });           
-                                    
-}
 
- 
+datenSpeichern();
