@@ -230,7 +230,7 @@ function showAbschlussHistorie(){
                 
                 <p>
                 💶 Entnahme:
-                <b>${a.entnahme.toFixed(2)} €</b>
+                <b>${(a.entnahme || 0).toFixed(2)} €</b>
                 </p>
 
                 <p>
