@@ -6,8 +6,8 @@
 
 var app = {
 
-    version: "0.6.0 Alpha",
-    build: "2026.07.06",
+    version: "0.6.2 Alpha",
+    build: "2026.07.06"
     verein: "FV Matzenberg",
     startKasse: 150
 
