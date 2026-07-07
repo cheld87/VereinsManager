@@ -311,10 +311,9 @@ function verkaufAbschliessen() {
 
 function verkaufAbschliessenOhneZahlung(){
 
-    umsatz += berechneGesamt();
-
 
     warenkorb.forEach(a=>{
+
 
         const artikelInfo =
             artikel.find(x=>x.id === a.id);
@@ -323,11 +322,27 @@ function verkaufAbschliessenOhneZahlung(){
         if(!artikelInfo) return;
 
 
+        // Lager abbuchen
+
         if(artikelInfo.lagerartikel){
 
             artikelInfo.lager.flaschen--;
 
         }
+
+
+        // Statistik
+
+        if(!statistik[a.id]){
+
+            statistik[a.id] = {
+                verkauft: 0
+            };
+
+        }
+
+        statistik[a.id].verkauft++;
+
 
     });
 
@@ -339,6 +354,7 @@ function verkaufAbschliessenOhneZahlung(){
 
 
     refreshUI();
+
 
 }
 
