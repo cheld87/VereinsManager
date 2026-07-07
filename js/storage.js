@@ -88,7 +88,36 @@ mitglieder = daten.mitglieder || [];
     }
 
 });
-            
+
+ // Lager reparieren
+artikel.forEach(a=>{
+
+    if(a.lager){
+
+        if(isNaN(a.lager.flaschen)){
+
+            a.lager.flaschen = 0;
+
+        }
+
+
+        if(isNaN(a.lager.kaesten)){
+
+            a.lager.kaesten = 0;
+
+        }
+
+
+        if(!a.lager.flaschenProKasten){
+
+            a.lager.flaschenProKasten = 24;
+
+        }
+
+    }
+
+});           
+                                    
 }
 
  
